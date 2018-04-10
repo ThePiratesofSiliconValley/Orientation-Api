@@ -1,4 +1,5 @@
-﻿using Orientation_API.Services;
+﻿using Orientation_API.Models;
+using Orientation_API.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,20 @@ namespace Orientation_API.Controllers
             var allProducts = productRepository.GetAllProducts();
 
             return Request.CreateResponse(HttpStatusCode.OK, allProducts);
+        }
+
+        [Route(""), HttpPost]
+        public HttpResponseMessage CreateProduct(Product product)
+        {
+            var productRepository = new ProductRepository();
+            var result = productRepository.Create(product);
+
+            if (result)
+            {
+                return Request.CreateResponse(HttpStatusCode.Created);
+            }
+
+            return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Could not create product, try again later");
         }
     }
 }
