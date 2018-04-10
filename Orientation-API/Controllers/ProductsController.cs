@@ -19,5 +19,7 @@ namespace Orientation_API.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, allProducts);
         }
+
+        [Route(""), HttpPost]
     }
 }
