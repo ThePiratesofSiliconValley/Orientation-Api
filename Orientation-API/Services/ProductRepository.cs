@@ -5,7 +5,8 @@ using System.Web;
 
 namespace Orientation_API.Services
 {
-    public class ProductController
+    public class ProductRepository
     {
+
     }
 }
