@@ -16,22 +16,6 @@ namespace Orientation_API.Controllers
         [HttpPut, Route("{id}")]
         public HttpResponseMessage Edit(int id, CustomerDto customer)
         {
-            var customerRepository = new CustomerRepository();
-            bool checkCustomer;
-
-            try
-            {
-                checkCustomer = customerRepository.GetSingle(id);
-            }
-            catch (SqlException)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong, please try again later.");
-            }
-            catch (Exception)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, $"{id} is invalid. Please provide a valid customer ID.");
-            }
-
             var dtoToCustomer = new CustomerModel
             {
                 FirstName = customer.FirstName,
@@ -44,11 +28,20 @@ namespace Orientation_API.Controllers
                 CustomerId = id
             };
 
-            var updateCustomer = customerRepository.EditCustomer(dtoToCustomer);
+            var customerModifier = new CustomerModifier();
+            var editCustomer = customerModifier.EditCustomer(dtoToCustomer);
 
-            return updateCustomer
-                ? Request.CreateResponse(HttpStatusCode.OK, "Customer has been updated.")
-                : Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong, please try again later.");
+            switch (editCustomer)
+            {
+                case Models.StatusCode.NotFound:
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, $"{id} is invalid. Please provide a valid customer ID.");
+                case Models.StatusCode.Success:
+                    return Request.CreateResponse(HttpStatusCode.OK, "Customer has been updated.");
+                case Models.StatusCode.Unsuccessful:
+                    return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong, please try again later.");
+                default:
+                    return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong, please try again later.");
+            }
         }
     }
 
