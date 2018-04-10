@@ -44,7 +44,9 @@ namespace Orientation_API.Services
                                                ,@ProductDescription
                                                ,@ProductPrice
                                                ,@Quantity
-                                               ,@CustomerId)");
+                                               ,@CustomerId)", product);
+
+                return numberCreated == 1;
             }
         }
     }
