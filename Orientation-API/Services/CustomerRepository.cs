@@ -32,6 +32,18 @@ namespace Orientation_API.Services
             }
         }
 
+        internal bool GetSingle(int id)
+        {
+            using (var db = CreateConnection())
+            {
+                db.Open();
+
+                var getCustomer = db.QueryFirst("select * from customer where customerId = @id", new { id });
+
+                return getCustomer != null;
+            }
+        }
+
         public SqlConnection CreateConnection()
         {
             return new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString);

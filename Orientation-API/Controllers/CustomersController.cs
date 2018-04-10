@@ -16,6 +16,22 @@ namespace Orientation_API.Controllers
         [HttpPut, Route("{id}")]
         public HttpResponseMessage Edit(int id, CustomerDto customer)
         {
+            var customerRepository = new CustomerRepository();
+            bool checkCustomer;
+
+            try
+            {
+                checkCustomer = customerRepository.GetSingle(id);
+            }
+            catch (SqlException)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong, please try again later.");
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, $"{id} is invalid. Please provide a valid customer ID.");
+            }
+
             var dtoToCustomer = new CustomerModel
             {
                 FirstName = customer.FirstName,
@@ -28,20 +44,11 @@ namespace Orientation_API.Controllers
                 CustomerId = id
             };
 
-            var customerRepository = new CustomerRepository();
-            
-            try
-            {
-                var updateCustomer = customerRepository.EditCustomer(dtoToCustomer);
-            }
-            catch (SqlException)
-            {
+            var updateCustomer = customerRepository.EditCustomer(dtoToCustomer);
 
-                throw;
-            }
-           
-
-            return Request.CreateResponse(HttpStatusCode.OK, "Customer has been updated.");
+            return updateCustomer
+                ? Request.CreateResponse(HttpStatusCode.OK, "Customer has been updated.")
+                : Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong, please try again later.");
         }
     }
 
