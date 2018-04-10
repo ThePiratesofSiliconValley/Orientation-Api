@@ -27,6 +27,26 @@ namespace Orientation_API.Services
         {
             return new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString);
         }
+
+        public bool Create(Product product)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+                var numberCreated = db.Execute(@"INSERT INTO [dbo].[Products]
+                                               ([ProductName]
+                                               ,[ProductDescription]
+                                               ,[ProductPrice]
+                                               ,[Quantity]
+                                               ,[CustomerId])
+                                         VALUES
+                                               (@ProductName
+                                               ,@ProductDescription
+                                               ,@ProductPrice
+                                               ,@Quantity
+                                               ,@CustomerId)");
+            }
+        }
     }
 
 }
