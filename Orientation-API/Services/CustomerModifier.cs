@@ -16,7 +16,7 @@ namespace Orientation_API.Services
 
             try
             {
-                checkCustomer = customerRepository.GetSingle(id);
+                checkCustomer = customerRepository.GetSingle(customer.CustomerId);
             }
             catch (SqlException)
             {
@@ -24,7 +24,7 @@ namespace Orientation_API.Services
             }
             catch (Exception)
             {
-                return StatusCode.ValidationFailure;
+                return StatusCode.NotFound;
             }
 
 

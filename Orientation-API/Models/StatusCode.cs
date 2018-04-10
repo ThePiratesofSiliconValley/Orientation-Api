@@ -9,7 +9,6 @@ namespace Orientation_API.Models
     {
         NotFound,
         Success,
-        Unsuccessful,
-        ValidationFailure
+        Unsuccessful
     }
 }
