@@ -25,7 +25,7 @@ namespace Orientation_API.Services
 
         public bool AddProductToOrder(PlaceOrderDto placeOrderDto)
         {
-            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            using (var db = CreateConnection())
             {
                 db.Open();
 
@@ -41,5 +41,23 @@ namespace Orientation_API.Services
     {
         public int CustomerId { get; set; }
         public int SalesRepId { get; set; }
+
+        public IEnumerable<Order> GetOutstandingOrders()
+        {
+            using (var db = CreateConnection())
+            {
+                db.Open();
+
+                var outstandingOrders = db.Query<Order>("select * from Orders where PaymentTypeId is null");
+
+                return outstandingOrders;
+            }
+        }
+
+        public SqlConnection CreateConnection()
+        {
+            return new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString);
+        }
     }
+
 }

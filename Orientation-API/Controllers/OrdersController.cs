@@ -31,5 +31,17 @@ namespace Orientation_API.Controllers
 
             return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Sorry about your luck.");
         }
+
+        [Route("outstanding"), HttpGet]
+        public HttpResponseMessage GetOutstanding()
+        {
+            var orderRepository = new OrderRepository();
+            var outstandingOrders = orderRepository.GetOutstandingOrders();
+
+            if (outstandingOrders != null)
+                return Request.CreateResponse(HttpStatusCode.OK, outstandingOrders);
+
+            return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Sorry, something went wrong. Please try again later.");
+        }
     }
 }
