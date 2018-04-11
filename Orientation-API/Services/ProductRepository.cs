@@ -49,6 +49,30 @@ namespace Orientation_API.Services
                 return numberCreated == 1;
             }
         }
+
+        public bool Remove(int productId)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+                var productRemoved = db.Execute(@"DELETE FROM Products
+                                                  WHERE ProductId = @productId", new {productId});
+
+                return productRemoved > 0;
+            }
+        }
+
+        public bool GetSingleProduct(int productId)
+        {
+            using (var db = createConnection())
+            {
+                db.Open();
+
+                var singleProduct = db.QueryFirst<Product>(@"SELECT * FROM Products WHERE ProductId = @productId", new {productId});
+
+                return singleProduct;
+            }
+        }
     }
 
 }

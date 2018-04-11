@@ -34,5 +34,14 @@ namespace Orientation_API.Controllers
 
             return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Could not create product, try again later");
         }
+
+        [Route(""), HttpDelete]
+        public HttpResponseMessage RemoveProduct()
+        {
+            var productRepository = new ProductRepository();
+            var allProducts = productRepository.GetAllProducts();
+
+
+        }
     }
 }
