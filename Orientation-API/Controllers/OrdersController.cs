@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Orientation_API.Models;
+using Orientation_API.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -11,9 +13,23 @@ namespace Orientation_API.Controllers
     public class OrdersController : ApiController
     {
         [Route("placeorder"), HttpPost]
-        public HttpResponseMessage PlaceOrder()
+        public HttpResponseMessage PlaceOrder(PlaceOrderDto placeOrderDto)
         {
-            throw new NotImplementedException();
+            var orderRepo = new OrderRepository();
+
+            if (placeOrderDto.OrderId == null)
+            {
+                throw new NotImplementedException();
+            }
+            
+            var addToOrderResult = orderRepo.AddProductToOrder(placeOrderDto);
+
+            if (addToOrderResult)
+            {
+                return Request.CreateResponse(HttpStatusCode.Created);
+            }
+
+            return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Sorry about your luck.");
         }
     }
 }
