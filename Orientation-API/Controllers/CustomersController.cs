@@ -57,13 +57,22 @@ namespace Orientation_API.Controllers
             }
         }
 
-        [HttpPut, Route("")]
-        public HttpResponseMessage MakeInactive(int customerId)
+        [HttpPatch, Route("{id}/inactive")]
+        public HttpResponseMessage MakeInactive(int id)
         {
             var customerRepository = new CustomerRepository();
-            var getSingleCustomer = customerRepository.GetSingle(customerId);
+            var getSingleCustomer = customerRepository.GetSingle(id);
 
-
+            if (!getSingleCustomer)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Could not find customer");
+            }
+            else if (customerRepository.IsInactive(id))
+            {
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            else
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Cannot make customer inactive at this time. Try again later.");
         }
     }
 

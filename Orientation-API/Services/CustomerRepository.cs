@@ -58,15 +58,17 @@ namespace Orientation_API.Services
             }
         }
 
-        public bool IsInactive(int isInactive, int customerId)
+        public bool IsInactive(int id)
         {
             using (var db = CreateConnection())
             {
                 db.Open();
 
-                db.Execute(@"UPDATE Customer
-                             SET IsInactive = @isInactive
-                             WHERE CustomerId = @customerId");
+                var makeCustomerInactive = db.Execute(@"UPDATE Customer
+                                                        SET IsInactive = 1
+                                                        WHERE CustomerId = @id", new {id});
+
+                return makeCustomerInactive == 1;
             }
         }
 
