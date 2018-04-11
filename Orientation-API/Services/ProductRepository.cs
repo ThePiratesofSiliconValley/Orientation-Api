@@ -62,13 +62,13 @@ namespace Orientation_API.Services
             }
         }
 
-        public bool GetSingleProduct(int productId)
+        public Product GetSingleProduct(int productId)
         {
             using (var db = createConnection())
             {
                 db.Open();
 
-                var singleProduct = db.QueryFirst<Product>(@"SELECT * FROM Products WHERE ProductId = @productId", new {productId});
+                var singleProduct = db.QueryFirstOrDefault<Product>(@"SELECT * FROM Products WHERE ProductId = @productId", new {productId});
 
                 return singleProduct;
             }

@@ -35,12 +35,30 @@ namespace Orientation_API.Controllers
             return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Could not create product, try again later");
         }
 
-        [Route(""), HttpDelete]
-        public HttpResponseMessage RemoveProduct()
+        [Route("{productId}"), HttpDelete]
+        public HttpResponseMessage RemoveProduct(int productId)
         {
             var productRepository = new ProductRepository();
-            var allProducts = productRepository.GetAllProducts();
+            var singleProduct = productRepository.GetSingleProduct(productId);
+            var removeProduct = productRepository.Remove(productId);
 
+            //check if product, if not 404
+            if (singleProduct == null)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Could not find product");
+            }
+            else if (removeProduct)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            else
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Sorry about your luck");
+
+
+            //remove product
+
+            //check if success, if not 500, if yes 200
+            
 
         }
     }
