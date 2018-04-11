@@ -56,6 +56,15 @@ namespace Orientation_API.Controllers
                     return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong, please try again later.");
             }
         }
+
+        [HttpPut, Route("")]
+        public HttpResponseMessage MakeInactive(int customerId)
+        {
+            var customerRepository = new CustomerRepository();
+            var getSingleCustomer = customerRepository.GetSingle(customerId);
+
+
+        }
     }
 
 
