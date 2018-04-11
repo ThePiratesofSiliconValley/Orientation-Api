@@ -96,7 +96,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\PlaceOrderDto.cs" />
+    <Compile Include="Models\CustomerDto.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\StatusCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CustomerModifier.cs" />
     <Compile Include="Services\CustomerRepository.cs" />
     <Compile Include="Services\OrderRepository.cs" />
     <Compile Include="Services\ProductRepository.cs" />
