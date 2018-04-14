@@ -58,6 +58,14 @@ namespace Orientation_API.Controllers
             }
         }
 
+        [HttpPatch, Route("{id}/active")]
+        public HttpResponseMessage MakeActive(int id)
+        {
+            var customerRepository = new CustomerRepository();
+            var getSingleCustomer = customerRepository.GetSingle(id);
+
+
+        }
 
         [HttpPatch, Route("{id}/inactive")]
         public HttpResponseMessage MakeInactive(int id)
