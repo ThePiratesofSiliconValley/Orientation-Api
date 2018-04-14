@@ -7,5 +7,7 @@ namespace Orientation_API.Models
 {
     public class CreateOrderDto
     {
+        public int CustomerId { get; set; }
+        public int SalesRepId { get; set; }
     }
 }

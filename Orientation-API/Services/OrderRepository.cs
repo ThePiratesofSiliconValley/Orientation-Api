@@ -17,7 +17,7 @@ namespace Orientation_API.Services
             {
                 db.Open();
 
-                var orderCreated = db.Execute("@INSERT into Orders (CustomerId, SalesRepId) VALUES (@CustomerId, @SalesRepId)", createOrderDto);
+                var orderCreated = db.Execute(@"INSERT into Orders (CustomerId, SalesRepId) VALUES (@CustomerId, @SalesRepId)", createOrderDto);
 
                 return orderCreated == 1;
             }
