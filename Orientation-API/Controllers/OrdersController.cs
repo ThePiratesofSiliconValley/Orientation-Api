@@ -12,6 +12,25 @@ namespace Orientation_API.Controllers
     [RoutePrefix("api/orders")]
     public class OrdersController : ApiController
     {
+        [Route("createorder"), HttpPost]
+        public HttpResponseMessage CreateNewOrder(CreateOrderDto createOrderDto)
+        {
+            var orderRepo = new OrderRepository();
+            var createNewOrder = orderRepo.CreateOrder(createOrderDto);
+
+            if(createOrderDto.CustomerId < 0)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "There is no account yet.");
+            }
+
+            if (createNewOrder)
+            {
+                return Request.CreateResponse(HttpStatusCode.Created);
+            }
+
+            return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "There was a problem creating the account.");
+        }
+
         [Route("placeorder"), HttpPost]
         public HttpResponseMessage PlaceOrder(PlaceOrderDto placeOrderDto)
         {
@@ -20,6 +39,13 @@ namespace Orientation_API.Controllers
             if (placeOrderDto.OrderId == null)
             {
                 throw new NotImplementedException();
+            }
+
+            var getProductQuantity = orderRepo.GetProductQuantity(placeOrderDto.ProductId);
+
+            if (getProductQuantity.Quantity < placeOrderDto.Quantity)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "You are being greedy...we don't have that many!");
             }
             
             var addToOrderResult = orderRepo.AddProductToOrder(placeOrderDto);
