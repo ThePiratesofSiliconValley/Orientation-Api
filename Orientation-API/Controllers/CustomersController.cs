@@ -64,7 +64,10 @@ namespace Orientation_API.Controllers
             var customerRepository = new CustomerRepository();
             var getSingleCustomer = customerRepository.GetSingle(id);
 
-
+            if (!getSingleCustomer)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Could not find customer");
+            }
         }
 
         [HttpPatch, Route("{id}/inactive")]
