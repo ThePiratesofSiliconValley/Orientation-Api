@@ -13,7 +13,7 @@ namespace Orientation_API.Services
     {
         public bool CreateOrder(CreateOrderDto createOrderDto)
         {
-            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            using (var db = CreateConnection())
             {
                 db.Open();
 
@@ -35,13 +35,6 @@ namespace Orientation_API.Services
                 return orderPlaced == 1;
             }
         }
-    }
-
-    public class CreateOrderDto
-    {
-        public int CustomerId { get; set; }
-        public int SalesRepId { get; set; }
-
         public IEnumerable<Order> GetOutstandingOrders()
         {
             using (var db = CreateConnection())
@@ -59,5 +52,4 @@ namespace Orientation_API.Services
             return new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString);
         }
     }
-
 }
