@@ -18,7 +18,7 @@ namespace Orientation_API.Controllers
             var orderRepo = new OrderRepository();
             var createNewOrder = orderRepo.CreateOrder(createOrderDto);
 
-            if (createOrderDto.CustomerId < 0)
+            if(createOrderDto.CustomerId < 0)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "There is no account yet.");
             }
@@ -28,8 +28,7 @@ namespace Orientation_API.Controllers
                 return Request.CreateResponse(HttpStatusCode.Created);
             }
 
-            return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
-                "There was a problem creating the account.");
+            return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "There was a problem creating the account.");
         }
 
         [Route("placeorder"), HttpPost]
@@ -40,13 +39,6 @@ namespace Orientation_API.Controllers
             if (placeOrderDto.OrderId == null)
             {
                 throw new NotImplementedException();
-            }
-
-            var getProductQuantity = orderRepo.GetProductQuantity(placeOrderDto.ProductId);
-
-            if (getProductQuantity.Quantity < placeOrderDto.Quantity)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "You are being greedy...we don't have that many!");
             }
             
             var addToOrderResult = orderRepo.AddProductToOrder(placeOrderDto);
@@ -68,22 +60,7 @@ namespace Orientation_API.Controllers
             if (outstandingOrders != null)
                 return Request.CreateResponse(HttpStatusCode.OK, outstandingOrders);
 
-            return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
-                "Sorry, something went wrong. Please try again later.");
-        }
-
-        [Route("paid"), HttpPut]
-        public HttpResponseMessage CompleteOrder(CompleteOrderDto completeOrderDto)
-        {
-            var orderRepository = new OrderRepository();
-            var paid = orderRepository.MarkAsPaid(completeOrderDto);
-            if (paid)
-            {
-                return Request.CreateResponse(HttpStatusCode.OK, "Order has been completed");
-            }
-
-            return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
-                "It's not you, it's me - order not copmlete");
+            return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Sorry, something went wrong. Please try again later.");
         }
     }
 }

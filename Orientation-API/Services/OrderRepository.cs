@@ -47,6 +47,18 @@ namespace Orientation_API.Services
             }
         }
 
+        public Product GetProductQuantity(int productId)
+        {
+            using (var db = CreateConnection())
+            {
+                db.Open();
+
+                var product = db.QueryFirst<Product>(@"SELECT * from Products WHERE ProductId = @productId", new { productId });
+
+                return product;
+            }
+        }
+
         public SqlConnection CreateConnection()
         {
             return new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString);
