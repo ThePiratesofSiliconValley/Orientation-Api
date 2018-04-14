@@ -58,7 +58,7 @@ namespace Orientation_API.Controllers
             }
         }
 
-<<<<<<< HEAD
+
         [HttpPatch, Route("{id}/inactive")]
         public HttpResponseMessage MakeInactive(int id)
         {
@@ -76,7 +76,7 @@ namespace Orientation_API.Controllers
             else
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Cannot make customer inactive at this time. Try again later.");
         }
-=======
+
         [Route(""), HttpPost]
         public HttpResponseMessage CreateCustomer(CustomerModel customer)
         {
@@ -92,7 +92,7 @@ namespace Orientation_API.Controllers
                 "The customer didn't save, try again");
         }
        
->>>>>>> master
+
     }
 
 
