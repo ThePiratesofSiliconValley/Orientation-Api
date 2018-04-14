@@ -20,7 +20,8 @@ namespace Orientation_API.Services
             {
                 db.Open();
 
-                var listOfCustomers = db.Query<CustomerModel>(@"Select * from Customer");
+                var listOfCustomers = db.Query<CustomerModel>(@"Select * from Customer
+                                                                WHERE IsInactive != 1 or IsInactive is NULL");
                 return listOfCustomers;
 
             }
@@ -55,6 +56,34 @@ namespace Orientation_API.Services
                 var getCustomer = db.QueryFirst("select * from customer where customerId = @id", new { id });
 
                 return getCustomer != null;
+            }
+        }
+
+        public bool IsActive(int id)
+        {
+            using (var db = CreateConnection())
+            {
+                db.Open();
+
+                var makeCustomerActive = db.Execute(@"UPDATE Customer
+                                                        SET IsInactive = 0
+                                                        WHERE CustomerId = @id", new {id});
+
+                return makeCustomerActive == 1;
+            }
+        }
+
+        public bool IsInactive(int id)
+        {
+            using (var db = CreateConnection())
+            {
+                db.Open();
+
+                var makeCustomerInactive = db.Execute(@"UPDATE Customer
+                                                        SET IsInactive = 1
+                                                        WHERE CustomerId = @id", new {id});
+
+                return makeCustomerInactive == 1;
             }
         }
 
