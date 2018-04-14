@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
 using System.Web.Http;
 using Orientation_API.Models;
 using Orientation_API.Services;
@@ -36,7 +37,7 @@ namespace Orientation_API.Controllers
                 Address = customer.Address,
                 City = customer.City,
                 State = customer.State,
-                Zip = customer.Zip,
+                PostalCode = customer.PostalCode,
                 Phone = customer.Phone,
                 CustomerId = id
             };
@@ -56,6 +57,22 @@ namespace Orientation_API.Controllers
                     return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong, please try again later.");
             }
         }
+
+        [Route(""), HttpPost]
+        public HttpResponseMessage CreateCustomer(CustomerModel customer)
+        {
+            var repository = new CustomerRepository();
+            var result = repository.CreateCustomer(customer);
+
+            if (result)
+            {
+                return Request.CreateResponse(HttpStatusCode.Created, "Customer has been created");
+            }
+
+            return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                "The customer didn't save, try again");
+        }
+       
     }
 
 
