@@ -20,7 +20,8 @@ namespace Orientation_API.Services
             {
                 db.Open();
 
-                var listOfCustomers = db.Query<CustomerModel>(@"Select * from Customer");
+                var listOfCustomers = db.Query<CustomerModel>(@"Select * from Customer
+                                                                WHERE IsInactive != 1 or IsInactive is NULL");
                 return listOfCustomers;
 
             }
