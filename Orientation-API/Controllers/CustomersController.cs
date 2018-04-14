@@ -68,6 +68,12 @@ namespace Orientation_API.Controllers
             {
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Could not find customer");
             }
+            else if (customerRepository.IsActive(id))
+            {
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            else
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Cannot make customer active at this time. Try again later.");
         }
 
         [HttpPatch, Route("{id}/inactive")]
