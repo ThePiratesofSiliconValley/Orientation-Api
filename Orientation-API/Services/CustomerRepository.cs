@@ -76,6 +76,33 @@ namespace Orientation_API.Services
         {
             return new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString);
         }
+
+        public bool CreateCustomer(CustomerModel customer)
+        {
+            using (var db = CreateConnection())
+            {
+                db.Open();
+
+                var createCustomer = db.Execute(@"INSERT INTO [dbo].[Customer]
+                                               ([FirstName]
+                                               ,[LastName]
+                                               ,[Address]
+                                               ,[City]
+                                               ,[State]
+                                               ,[PostalCode]
+                                               ,[Phone])
+                                         VALUES
+                                               (@FirstName
+                                               ,@LastName
+                                               ,@Address
+                                               ,@City
+                                               ,@State
+                                               ,@PostalCode
+                                               ,@Phone)", customer);
+                return createCustomer == 1;
+
+            }
+        }
     }
 
 
