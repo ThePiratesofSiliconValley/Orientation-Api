@@ -42,6 +42,8 @@ namespace Orientation_API.Controllers
                 throw new NotImplementedException();
             }
 
+<<<<<<< HEAD
+=======
             var getProductQuantity = orderRepo.GetProductQuantity(placeOrderDto.ProductId);
 
             if (getProductQuantity.Quantity < placeOrderDto.Quantity)
@@ -49,6 +51,7 @@ namespace Orientation_API.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "You are being greedy...we don't have that many!");
             }
             
+>>>>>>> master
             var addToOrderResult = orderRepo.AddProductToOrder(placeOrderDto);
 
             if (addToOrderResult)

@@ -63,5 +63,21 @@ namespace Orientation_API.Services
         {
             return new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString);
         }
+
+        public bool MarkAsPaid(CompleteOrderDto completeOrderDto)
+        {
+            using (var db = CreateConnection())
+            {
+                db.Open();
+                var query = @"UPDATE [dbo].[Orders]
+                                               SET 
+                                                  [PaymentTypeId] = @PaymentTypeId
+     
+                                             WHERE OrderId = @OrderId";
+                var queryVariables = new {completeOrderDto.PaymentTypeId, completeOrderDto.OrderId};
+                var markAsPaid = db.Execute(query, queryVariables);
+                return markAsPaid == 1;
+            }
+        }
     }
 }
