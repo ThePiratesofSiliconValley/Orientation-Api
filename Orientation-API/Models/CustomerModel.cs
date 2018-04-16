@@ -15,5 +15,6 @@ namespace Orientation_API.Models
         public string State { get; set; }
         public int PostalCode { get; set; }
         public string Phone { get; set; }
+        public bool IsInactive { get; set; }
     }
 }

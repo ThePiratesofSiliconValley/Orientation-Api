@@ -39,7 +39,7 @@ namespace Orientation_API.Services
                                                                   ,Address = @address
                                                                   ,City = @city
                                                                   ,State = @state
-                                                                  ,PostalCode = @zip
+                                                                  ,PostalCode = @PostalCode
                                                                   ,Phone = @phone
                                                              WHERE CustomerId = @customerId", customer);
 
