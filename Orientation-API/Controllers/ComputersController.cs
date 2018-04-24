@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Orientation_API.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -13,7 +14,10 @@ namespace Orientation_API.Controllers
         [HttpGet, Route("")]
         public HttpResponseMessage Get()
         {
-            return Request.CreateResponse(HttpStatusCode.OK);
+            var repo = new ComputerRespository();
+            var results = repo.GetAllComputers();
+
+            return Request.CreateResponse(HttpStatusCode.OK, results);
         }
     }
 }
