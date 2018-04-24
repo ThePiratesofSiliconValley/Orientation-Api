@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.SqlClient;
 using Dapper;
 using System.Configuration;
+using Orientation_API.Models;
 
 namespace Orientation_API.Services
 {
@@ -21,13 +22,26 @@ namespace Orientation_API.Services
                 return result;
             }
         }
+
+        public List<ComputerOutputDto> ComputerReturn(List<Computer> results)
+        {
+            var computersDto = new List<ComputerOutputDto>();
+
+            foreach (var result in results)
+            {
+                var computerDto = new ComputerOutputDto
+                {
+                    ComputerId = result.ComputerId,
+                    ComputerManufacturer = result.ComputerManufacturer,
+                    ComputerMake = result.ComputerMake,
+                    PurchaseDate = result.PurchaseDate
+                };
+
+                computersDto.Add(computerDto);
+            }
+
+            return computersDto;
+        }
     }
 
-    public class Computer
-    {
-        public int ComputerId { get; set; }
-        public string ComputerManufacturer { get; set; }
-        public string ComputerMake { get; set; }
-        public DateTime PurchaseDate { get; set; }
-    }
 }

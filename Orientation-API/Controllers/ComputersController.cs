@@ -16,8 +16,9 @@ namespace Orientation_API.Controllers
         {
             var repo = new ComputerRespository();
             var results = repo.GetAllComputers();
+            var resultsDto = repo.ComputerReturn(results);
 
-            return Request.CreateResponse(HttpStatusCode.OK, results);
+            return Request.CreateResponse(HttpStatusCode.OK, resultsDto);
         }
     }
 }
