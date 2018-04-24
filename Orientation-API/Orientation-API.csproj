@@ -143,6 +143,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ComputersController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\StatusCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ComputerRespository.cs" />
     <Compile Include="Services\CustomerModifier.cs" />
     <Compile Include="Services\CustomerRepository.cs" />
     <Compile Include="Services\OrderRepository.cs" />
