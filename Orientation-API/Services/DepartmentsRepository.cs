@@ -16,13 +16,15 @@ namespace Orientation_API.Services
             return new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString);
         }
 
-        public List<DepartmentsDto> GetAll()
+        public IEnumerable<DepartmentsDto> GetAll()
         {
             using (var db = CreateConnection())
             {
                 db.Open();
 
+                var departments = db.Query<DepartmentsDto>("select * from Departments");
 
+                return departments;
             }
         }
     }
