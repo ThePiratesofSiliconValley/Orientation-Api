@@ -21,7 +21,12 @@ namespace Orientation_API
                       "~/Scripts/angular.js",
                       "~/Scripts/angular-route.js",
                       "~/app/app.js").
+<<<<<<< HEAD
                       IncludeDirectory("~/app/controllers","*.js",true));
+
+=======
+                      IncludeDirectory("~/app/controllers", "*.js", true));
+>>>>>>> master
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
