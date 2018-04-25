@@ -116,8 +116,10 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\controllers\DepartmentsController.js" />
+    <Content Include="app\controllers\ComputersController.js" />
     <Content Include="app\controllers\HomeController.js" />
     <Content Include="app\partials\departments.html" />
+    <Content Include="app\partials\computers.html" />
     <Content Include="app\partials\index.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -147,6 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ComputersController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -156,6 +159,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CompleteOrderDto.cs" />
+    <Compile Include="Models\Computer.cs" />
+    <Compile Include="Models\ComputerOutputDto.cs" />
     <Compile Include="Models\CreateOrderDto.cs" />
     <Compile Include="Models\DepartmentsDto.cs" />
     <Compile Include="Models\Order.cs" />
@@ -165,6 +170,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\StatusCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ComputerRespository.cs" />
     <Compile Include="Services\CustomerModifier.cs" />
     <Compile Include="Services\CustomerRepository.cs" />
     <Compile Include="Services\DepartmentsRepository.cs" />
