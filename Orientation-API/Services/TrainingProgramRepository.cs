@@ -26,7 +26,7 @@ namespace Orientation_API.Services
                                            (@TrainingName
                                            ,@StartDay
                                            ,@EndDay
-                                           ,@MaxAttendees", training);
+                                           ,@MaxAttendees)", training);
                 return createTraining == 1;
             }
         }

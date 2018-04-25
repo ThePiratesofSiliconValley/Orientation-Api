@@ -9,8 +9,8 @@ namespace Orientation_API.Models
     public class TrainingProgramDto
     {
         public string TrainingName { get; set; }
-        public DateTime StartDayDate { get; set; }
-        public DateTime EndDayDate { get; set; }
+        public DateTime StartDay { get; set; }
+        public DateTime EndDay { get; set; }
         public int MaxAttendees { get; set; }
     }
 }

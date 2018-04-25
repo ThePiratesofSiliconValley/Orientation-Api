@@ -11,7 +11,7 @@ using Orientation_API.Services;
 namespace Orientation_API.Controllers
 {
     [RoutePrefix("api/trainings")]
-    public class TrainingProgramsController
+    public class TrainingProgramsController : ApiController
     {
         [HttpPost, Route("")]
         public HttpResponseMessage CreateTraining(TrainingProgramDto training)
