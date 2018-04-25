@@ -2,17 +2,12 @@
     Departments
 </h2>
 
-<ul>
-    <li ng-repeat="department in departments">{{department.DepartmentName}}</li>
-</ul>
+<div class="p-bottom">
+    <button class="btn btn-primary">Create New Department</button>
+</div>
 
-<!--<div>
-    <table class="table table-hover">
-        <tr>
-            <td>Department Name</td>
-        </tr>
-        <tr ng-repeat="department in departments">
-            <td>{{department.DepartmentName}}</td>
-        </tr>
-    </table>
-</div>-->
+<div>
+    <div ng-repeat="department in departments" class="col-md-3">
+        <p>{{department.DepartmentName}}</p>
+    </div>
+</div>
