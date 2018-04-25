@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using Dapper;
 using System.Configuration;
 using Orientation_API.Models;
+using Orientation_API.Controllers;
 
 namespace Orientation_API.Services
 {
@@ -41,6 +42,18 @@ namespace Orientation_API.Services
             }
 
             return computersDto;
+        }
+
+        internal Computer ConvertComputer(ComputerDto computer)
+        {
+            var result = new Computer
+            {
+                ComputerManufacturer = computer.ComputerManufacturer,
+                ComputerMake = computer.ComputerMake,
+                PurchaseDate = computer.PurchaseDate
+            };
+
+            return result;
         }
 
         public bool AddNewComputer(Computer computer)
