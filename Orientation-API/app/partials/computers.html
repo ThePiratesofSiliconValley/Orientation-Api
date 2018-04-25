@@ -1,11 +1,15 @@
 ﻿<h2>Computers</h2>
 
+<div class="create">
+    <button type="button" class="btn btn-info col-sm-2 col-sm-offset-10 add-computer" ng-click="createComputer()">Create a new computer</button>
+</div>
+
 <div>
     <table class="table table-hover">
         <tr>
-            <td>Computer Manufacturer</td>
-            <td>Computer Make</td>
-            <td>Purchase Date</td>
+            <th>Computer Manufacturer</th>
+            <th>Computer Make</th>
+            <th>Purchase Date</th>
         </tr>
         <tr ng-repeat="computer in computers">
             <td>{{computer.ComputerManufacturer}}</td>
