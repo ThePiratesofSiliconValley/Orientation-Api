@@ -18,4 +18,3 @@ app.config(["$routeProvider", function ($routeProvider) {
             controller: "ComputersController"
         });
 }]);
-}]);
