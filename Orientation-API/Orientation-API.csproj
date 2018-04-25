@@ -117,9 +117,11 @@
     <Content Include="app\app.js" />
     <Content Include="app\controllers\DepartmentsController.js" />
     <Content Include="app\controllers\ComputersController.js" />
+    <Content Include="app\controllers\EmployeesController.js" />
     <Content Include="app\controllers\HomeController.js" />
     <Content Include="app\partials\departments.html" />
     <Content Include="app\partials\computers.html" />
+    <Content Include="app\partials\employees.html" />
     <Content Include="app\partials\index.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
