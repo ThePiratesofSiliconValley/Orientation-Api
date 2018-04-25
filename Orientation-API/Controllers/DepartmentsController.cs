@@ -2,19 +2,24 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web;
-using System.Web.Mvc;
+using Orientation_API.Models;
+using System.Web.Http;
 
 namespace Orientation_API.Controllers
 {
-    public class DepartmentsController : Controller
+    [RoutePrefix("api/departments")]
+    public class DepartmentsController : ApiController
     {
-        // GET: Departments
-        public ActionResult Index()
+        [HttpGet, Route("")]
+        public HttpResponseMessage GetAllDepartments()
         {
             var repo = new DepartmentsRepository();
+            var departmentList = repo.GetAll();
 
-            return View();
+            return Request.CreateResponse(HttpStatusCode.OK, departmentList);
         }
     }
 }
