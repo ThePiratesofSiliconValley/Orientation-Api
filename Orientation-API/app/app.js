@@ -5,5 +5,10 @@ app.config(["$routeProvider", function ($routeProvider) {
         {
             templateUrl: "/app/partials/index.html",
             controller: "HomeController"
+        })
+        .when("/computers",
+        {
+            templateUrl: "/app/partials/computers.html",
+            controller: "ComputersController"
         });
 }]);

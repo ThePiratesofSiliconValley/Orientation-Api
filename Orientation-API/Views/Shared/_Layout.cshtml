@@ -19,8 +19,8 @@
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav dropdown-menu">
-                    <li><a href="#">Trainings</a></li>
+                <ul class="nav navbar-nav">
+                    <li><a ng-href="#!/computers">Computers</a></li>
                 </ul>
             </div>
         </div>
@@ -33,7 +33,6 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/angular")
