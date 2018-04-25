@@ -1,9 +1,16 @@
 ﻿<h2>Computers</h2>
 
 <div>
-    <table class="">
-        <tr ng-repat="computer in computers">
-            <td>{{computer.}}</td>
+    <table class="table table-hover">
+        <tr>
+            <td>Computer Manufacturer</td>
+            <td>Computer Make</td>
+            <td>Purchase Date</td>
+        </tr>
+        <tr ng-repeat="computer in computers">
+            <td>{{computer.ComputerManufacturer}}</td>
+            <td>{{computer.ComputerMake}}</td>
+            <td>{{computer.PurchaseDate}}</td>
         </tr>
     </table>
 </div>
