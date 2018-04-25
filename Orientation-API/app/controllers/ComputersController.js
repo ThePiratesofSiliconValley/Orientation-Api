@@ -3,7 +3,7 @@
         $scope.computers = result.data;
     });
 
-    var createComputer = function () {
+    $scope.createComputer = function () {
         $location.path("/newcomputer");
     };
 
