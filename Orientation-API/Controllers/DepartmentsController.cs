@@ -21,5 +21,12 @@ namespace Orientation_API.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, departmentList);
         }
+
+        [HttpPost, Route("")]
+        public HttpResponseMessage CreateDepartment(DepartmentsDto department)
+        {
+            var repo = new DepartmentsRepository();
+            var newDepartment = repo.CreateDepartment();
+        }
     }
 }
