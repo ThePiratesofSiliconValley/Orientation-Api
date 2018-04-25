@@ -42,6 +42,24 @@ namespace Orientation_API.Services
 
             return computersDto;
         }
+
+        public bool AddNewComputer(Computer computer)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+
+                var result = db.Execute(@"INSERT INTO Computers
+                                                       (ComputerManufacturer
+                                                       ,ComputerMake
+                                                       ,PurchaseDate)
+                                                 VALUES
+                                                       (@ComputerManufacturer
+                                                       ,@ComputerMake
+                                                       ,@PurchaseDate)", computer);
+                return result == 1;
+            }
+        }
     }
 
 }
