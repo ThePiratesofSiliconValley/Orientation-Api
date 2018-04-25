@@ -17,8 +17,9 @@ app.config(["$routeProvider", function ($routeProvider) {
             templateUrl: "/app/partials/computers.html",
             controller: "ComputersController"
         })
-        .when("/create-department", {
-            templateUrl: "/app/partials/create-department",
+        .when("/create-department",
+        {
+            templateUrl: "/app/partials/create-department.html",
             controller: "CreateDepartmentController"
         });
 }]);
