@@ -1,20 +1,26 @@
 ﻿var app = angular.module("Orientation-API", ["ngRoute"]);
 
 app.config(["$routeProvider", function ($routeProvider) {
+<<<<<<< HEAD
     $routeProvider
         .when("/",
+=======
+    $routeProvider.when("/",
+>>>>>>> master
         {
             templateUrl: "/app/partials/index.html",
             controller: "HomeController"
         })
+<<<<<<< HEAD
         .when("/departments",
         {
             templateUrl: "/app/partials/departments.html",
             controller: "DepartmentsController"
-        })
+=======
         .when("/computers",
         {
             templateUrl: "/app/partials/computers.html",
             controller: "ComputersController"
+>>>>>>> master
         });
 }]);
