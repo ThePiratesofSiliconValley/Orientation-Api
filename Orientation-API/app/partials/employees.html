@@ -1,8 +1,17 @@
-﻿<h2>{{message}}</h2>
+﻿<h2>Current Employees</h2>
 
-<div >
-    <ul>
-        <li ng-repeat="employee in employees | orderBy: 'Department'">"Employee: " + {{employee.EmployeeName}} + "Department: " + {{employee.DepartmentName}} </li>
-    </ul>
+<div>
+    
+
+    <table class="table table-striped">
+        <tr>
+            <th>Employee Name</th>
+            <th>Department</th>
+        </tr>
+        <tr ng-repeat="employee in employees | orderBy: 'EmployeeName'">
+            <td>{{employee.EmployeeName}}</td>
+            <td>{{employee.DepartmentName}}</td>
+        </tr>
+    </table>
 </div>
 
