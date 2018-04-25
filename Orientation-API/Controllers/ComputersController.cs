@@ -20,5 +20,25 @@ namespace Orientation_API.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, resultsDto);
         }
+
+        [HttpPost, Route("")]
+        public HttpResponseMessage Create(ComputerDto computer)
+        {
+            var repo = new ComputerRespository();
+            var dtoToComputer = repo.ConvertComputer(computer);
+            var result = repo.AddNewComputer(dtoToComputer);
+
+            if (!result)
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong with trying to create this employee. Please try again later.");
+
+            return Request.CreateResponse(HttpStatusCode.Created, "Computer has been created!");
+        }
+    }
+
+    public class ComputerDto
+    {
+        public string ComputerManufacturer { get; set; }
+        public string ComputerMake { get; set; }
+        public DateTime PurchaseDate { get; set; }
     }
 }
