@@ -115,7 +115,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\controllers\DepartmentsController.js" />
     <Content Include="app\controllers\HomeController.js" />
+    <Content Include="app\partials\departments.html" />
     <Content Include="app\partials\index.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
