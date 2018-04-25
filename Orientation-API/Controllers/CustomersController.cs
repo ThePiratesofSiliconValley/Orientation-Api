@@ -8,8 +8,6 @@ using System.Net;
 using System.Net.Http;
 using System.Security.Cryptography.X509Certificates;
 using System.Web.Http;
-using Orientation_API.Models;
-using Orientation_API.Services;
 
 namespace Orientation_API.Controllers
 {
