@@ -7,8 +7,7 @@ namespace Orientation_API.Models
 {
     public class EmployeeDto
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Department { get; set; }
+        public string EmployeeName { get; set; }
+        public string DepartmentName { get; set; }
     }
 }

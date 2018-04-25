@@ -11,7 +11,7 @@ namespace Orientation_API.Services
 {
     public class EmployeeRepository
     {
-        public IEnumerable<EmployeeDto> GetEmployees()
+        public IEnumerable<EmployeeDto> Get()
         {
             using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
             {
@@ -24,10 +24,7 @@ namespace Orientation_API.Services
                                                               WHERE e.SeparationDate is null
                                                               ORDER BY d.DepartmentId");
                 return listOfEmployees;
-            }
-
-
-            
+            }            
         }
     }
 }
