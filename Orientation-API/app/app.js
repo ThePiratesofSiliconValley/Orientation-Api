@@ -19,7 +19,7 @@ app.config(["$routeProvider", function ($routeProvider) {
         })
         .when("/create-department",
         {
-            templateUrl: "/app/partials/create-department.html",
-            controller: "CreateDepartmentController"
+            templateUrl: "/app/partials/newcomputer.html",
+            controller: "NewComputerController"
         });
 }]);
