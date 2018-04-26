@@ -73,6 +73,18 @@ namespace Orientation_API.Services
                 return result == 1;
             }
         }
+
+        public Computer GetSingleComputer(int computerId)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+
+                var result = db.QueryFirst<Computer>("select * from Computers where computerId = @computerId", new { computerId });
+
+                return result;
+            }
+        }
     }
 
 }
