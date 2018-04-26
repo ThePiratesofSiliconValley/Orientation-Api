@@ -1,4 +1,5 @@
-﻿using Orientation_API.Services;
+﻿using Orientation_API.Models;
+using Orientation_API.Services;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -38,36 +39,21 @@ namespace Orientation_API.Controllers
         [HttpDelete, Route("{id}")]
         public HttpResponseMessage Delete(int id)
         {
-            var repo = new ComputerRespository();
-            bool employeeCheck;
+            var repo = new ComputerModifier();
+            var deleteComputer = repo.DeleteComputer(id);
 
-            try
+            switch (deleteComputer)
             {
-                employeeCheck = repo.GetSingleComputer(id);
-            }
-            catch (SqlException)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong, please try again later.");
-            }
-            catch (Exception)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, $"It appears that the computer ID {id} does not exist, or has an employee associated with it.");
-            }
-
-            var deleteComputer = repo.Delete(id);
-
-            if (!deleteComputer)
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong, please try again later.");
-
-
-                return Request.CreateResponse(HttpStatusCode.OK, "the computer has been deleted.");
+                case Models.StatusCode.NotFound:
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, $"It appears that the computer ID {id} does not exist, or has an employee associated with it.");
+                case Models.StatusCode.Success:
+                    return Request.CreateResponse(HttpStatusCode.OK, "the computer has been deleted.");
+                case Models.StatusCode.Unsuccessful:
+                    return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong, please try again later.");
+                default:
+                    return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong, please try again later.");
+            }                
         }
     }
 
-    public class ComputerDto
-    {
-        public string ComputerManufacturer { get; set; }
-        public string ComputerMake { get; set; }
-        public DateTime PurchaseDate { get; set; }
-    }
 }
