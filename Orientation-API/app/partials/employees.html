@@ -1,0 +1,17 @@
+﻿<h2>Current Employees</h2>
+
+<div>
+    
+
+    <table class="table table-striped">
+        <tr>
+            <th>Employee Name</th>
+            <th>Department</th>
+        </tr>
+        <tr ng-repeat="employee in employees | orderBy: 'EmployeeName'">
+            <td>{{employee.EmployeeName}}</td>
+            <td>{{employee.DepartmentName}}</td>
+        </tr>
+    </table>
+</div>
+
