@@ -112,9 +112,11 @@
     <Content Include="app\controllers\DepartmentsController.js" />
     <Content Include="app\controllers\ComputersController.js" />
     <Content Include="app\controllers\HomeController.js" />
+    <Content Include="app\controllers\TrainingProgramController.js" />
     <Content Include="app\partials\departments.html" />
     <Content Include="app\partials\computers.html" />
     <Content Include="app\partials\index.html" />
+    <Content Include="app\partials\trainingPrograms.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -197,6 +199,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Departments\" />
+    <Folder Include="Views\TrainingProgram\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

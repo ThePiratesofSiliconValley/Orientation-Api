@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using Dapper;
+using Orientation_API.Controllers;
 using Orientation_API.Models;
 
 namespace Orientation_API.Services
@@ -28,6 +29,16 @@ namespace Orientation_API.Services
                                            ,@EndDay
                                            ,@MaxAttendees)", training);
                 return createTraining == 1;
+            }
+        }
+
+        public IEnumerable<TrainingProgramDto> GetAllTrainings()
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+                var trainings = db.Query<TrainingProgramDto>("select * from TrainingPrograms");
+                return trainings;
             }
         }
     }

@@ -13,6 +13,14 @@ namespace Orientation_API.Controllers
     [RoutePrefix("api/trainings")]
     public class TrainingProgramsController : ApiController
     {
+        [HttpGet, Route("")]
+        public HttpResponseMessage Get()
+        {
+            var trainingProgramRepository = new TrainingProgramRepository();
+            var allTrainings = trainingProgramRepository.GetAllTrainings();
+            return Request.CreateResponse(HttpStatusCode.OK, allTrainings);
+        }
+
         [HttpPost, Route("")]
         public HttpResponseMessage CreateTraining(TrainingProgramDto training)
         {
