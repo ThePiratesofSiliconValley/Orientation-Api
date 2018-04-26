@@ -17,6 +17,11 @@ app.config(["$routeProvider", function ($routeProvider) {
             templateUrl: "/app/partials/computers.html",
             controller: "ComputersController"
         })
+        .when("/newcomputer",
+        {
+            templateUrl: "/app/partials/newcomputer.html",
+            controller: "NewComputerController"
+        })
         .when("/employees",
         {
             templateUrl: "/app/partials/employees.html",
