@@ -1,18 +1,24 @@
-﻿app.controller("CreateDepartmentController", ["$scope", "$http",
-    function ($scope, $http) {
+﻿app.controller("CreateDepartmentController", ["$scope", "$http", "$location", function ($scope, $http, $location) {
 
-        function createDepartmentsObject(department) {
+        $scope.createDepartment = {};
 
-        }
+        var createNewDepartment = function (department) {
+            return $http.post("/api/departments", JSON.stringify(department));
+        };
 
-        $http.post("/api/departments").then(function (result) {
-            $scope.departments = result.data;
-        });
+        $scope.submitForm = function () {
 
-        //$http.post("/api/departments", { "DepartmentName": "Training" }).then(function (data) {
-        //    console.log("success");
-        //    console.log(data);
-        //});
+            var newDepartment = {
+                "departmentname": $scope.adddepartment.departmentname
+            };
+
+            createNewDepartment(newDepartment).then(function () {
+                $location.path("/departments");
+            }).catch(function (error) {
+                console.log(error);
+            });
+
+        };
 
     }
 ]);

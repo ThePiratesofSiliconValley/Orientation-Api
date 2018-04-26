@@ -17,9 +17,14 @@ app.config(["$routeProvider", function ($routeProvider) {
             templateUrl: "/app/partials/computers.html",
             controller: "ComputersController"
         })
-        .when("/create-department",
+        .when("/newcomputer",
         {
             templateUrl: "/app/partials/newcomputer.html",
             controller: "NewComputerController"
+        })
+        .when("/create-department",
+        {
+            templateUrl: "/app/partials/create-department.html",
+            controller: "CreateDepartmentController"
         });
 }]);
