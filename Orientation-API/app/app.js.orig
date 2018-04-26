@@ -17,16 +17,19 @@ app.config(["$routeProvider", function ($routeProvider) {
             templateUrl: "/app/partials/computers.html",
             controller: "ComputersController"
         })
+        .when("/employees",
+        {
 <<<<<<< HEAD
+            templateUrl: "/app/partials/newcomputer.html",
+            controller: "NewComputerController"
+        })
         .when("/create-department",
         {
             templateUrl: "/app/partials/create-department.html",
             controller: "CreateDepartmentController"
 =======
-        .when("/newcomputer",
-        {
-            templateUrl: "/app/partials/newcomputer.html",
-            controller: "NewComputerController"
+            templateUrl: "/app/partials/employees.html",
+            controller: "EmployeesController"
 >>>>>>> master
         });
 }]);
