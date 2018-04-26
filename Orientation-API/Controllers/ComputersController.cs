@@ -45,7 +45,7 @@ namespace Orientation_API.Controllers
             switch (deleteComputer)
             {
                 case Models.StatusCode.NotFound:
-                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, $"It appears that the computer ID {id} does not exist, or has an employee associated with it.");
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, $"It appears that computer ID {id} does not exist, or has an employee associated with it.");
                 case Models.StatusCode.Success:
                     return Request.CreateResponse(HttpStatusCode.OK, "the computer has been deleted.");
                 case Models.StatusCode.Unsuccessful:
