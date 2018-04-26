@@ -11,7 +11,7 @@ namespace Orientation_API.Services
     {
         public StatusCode EditCustomer(CustomerModel customer)
         {
-            var customerRepository = new CustomerRepository();
+            var customerRepository = new ComputerRepository();
             bool checkCustomer;
 
             try

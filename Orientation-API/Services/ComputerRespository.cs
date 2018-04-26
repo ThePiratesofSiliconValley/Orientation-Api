@@ -74,15 +74,27 @@ namespace Orientation_API.Services
             }
         }
 
-        public Computer GetSingleComputer(int computerId)
+        public bool GetSingleComputer(int computerId)
         {
             using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
             {
                 db.Open();
 
-                var result = db.QueryFirst<Computer>("select * from Computers where computerId = @computerId", new { computerId });
+                var result = db.QueryFirst("select * from Computers where computerId = @computerId and employeeID is null", new { computerId });
 
-                return result;
+                return result != null;
+            }
+        }
+
+        public bool Delete(int id)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+
+                var result = db.Execute("delete from computers where computerId = @id", new { id });
+
+                return result == 1;
             }
         }
     }
