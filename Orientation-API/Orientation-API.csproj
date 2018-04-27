@@ -167,6 +167,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\TrainingProgramsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -194,6 +195,7 @@
     <Compile Include="Services\DepartmentsRepository.cs" />
     <Compile Include="Services\OrderRepository.cs" />
     <Compile Include="Services\ProductRepository.cs" />
+    <Compile Include="Services\TrainingProgramRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -219,6 +221,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\CreateTraining\" />
     <Folder Include="Views\Departments\" />
+    <Folder Include="Views\TrainingPrograms\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
