@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
-using Dapper;
-using Orientation_API.Models;
 
 
 namespace Orientation_API.Services

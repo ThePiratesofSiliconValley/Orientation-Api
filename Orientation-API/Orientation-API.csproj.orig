@@ -115,18 +115,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
-<<<<<<< HEAD
+    <Content Include="app\controllers\CreateDepartmentController.js" />
     <Content Include="app\controllers\DepartmentsController.js" />
-    <Content Include="app\controllers\HomeController.js" />
-    <Content Include="app\partials\departments.html" />
-=======
     <Content Include="app\controllers\ComputersController.js" />
     <Content Include="app\controllers\HomeController.js" />
-    <Content Include="app\partials\computers.html" />
+<<<<<<< HEAD
+    <Content Include="app\partials\create-department.html" />
+=======
+    <Content Include="app\controllers\NewComputerController.js" />
 >>>>>>> master
+    <Content Include="app\partials\departments.html" />
+    <Content Include="app\partials\computers.html" />
     <Content Include="app\partials\index.html" />
+    <Content Include="app\partials\newcomputer.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\computers.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

@@ -27,5 +27,20 @@ namespace Orientation_API.Services
                 return departments;
             }
         }
+
+        public bool CreateDepartment(DepartmentsDto department)
+        {
+            using (var db = CreateConnection())
+            {
+                db.Open();
+
+                var createDepartment = db.Execute(@"INSERT INTO [dbo].[Departments]
+                                                       ([DepartmentName])
+                                                 VALUES
+                                                       (@DepartmentName)", department);
+
+                return createDepartment == 1;
+            }
+        }
     }
 }
