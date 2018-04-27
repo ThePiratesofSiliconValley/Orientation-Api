@@ -18,7 +18,7 @@ namespace Orientation_API.Controllers
         public HttpResponseMessage GetCustomers(CustomerModel customer)
 
         {
-            var customers = new CustomerRepository();
+            var customers = new ComputerRepository();
             var customerList = customers.Get();
 
             return Request.CreateResponse(HttpStatusCode.Accepted, customerList);
@@ -59,7 +59,7 @@ namespace Orientation_API.Controllers
         [HttpPatch, Route("{id}/active")]
         public HttpResponseMessage MakeActive(int id)
         {
-            var customerRepository = new CustomerRepository();
+            var customerRepository = new ComputerRepository();
             var getSingleCustomer = customerRepository.GetSingle(id);
 
             if (!getSingleCustomer)
@@ -77,7 +77,7 @@ namespace Orientation_API.Controllers
         [HttpPatch, Route("{id}/inactive")]
         public HttpResponseMessage MakeInactive(int id)
         {
-            var customerRepository = new CustomerRepository();
+            var customerRepository = new ComputerRepository();
             var getSingleCustomer = customerRepository.GetSingle(id);
 
             if (!getSingleCustomer)
@@ -95,7 +95,7 @@ namespace Orientation_API.Controllers
         [Route(""), HttpPost]
         public HttpResponseMessage CreateCustomer(CustomerModel customer)
         {
-            var repository = new CustomerRepository();
+            var repository = new ComputerRepository();
             var result = repository.CreateCustomer(customer);
 
             if (result)

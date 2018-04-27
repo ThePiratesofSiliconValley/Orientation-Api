@@ -7,16 +7,16 @@ using System.Web;
 
 namespace Orientation_API.Services
 {
-    public class CustomerModifier
+    public class ComputerModifier
     {
-        public StatusCode EditCustomer(CustomerModel customer)
+        public StatusCode DeleteComputer(int id)
         {
-            var customerRepository = new ComputerRepository();
-            bool checkCustomer;
+            var repo = new ComputerRespository();
+            bool employeeCheck;
 
             try
             {
-                checkCustomer = customerRepository.GetSingle(customer.CustomerId);
+                employeeCheck = repo.GetSingleComputer(id);
             }
             catch (SqlException)
             {
@@ -27,12 +27,12 @@ namespace Orientation_API.Services
                 return StatusCode.NotFound;
             }
 
+            var deleteComputer = repo.Delete(id);
 
-            var updateCustomer = customerRepository.EditCustomer(customer);
-
-            return updateCustomer
-                ? StatusCode.Success
-                : StatusCode.Unsuccessful;
+            return deleteComputer
+                   ? StatusCode.Success
+                   : StatusCode.Unsuccessful;
+            
         }
     }
 }
