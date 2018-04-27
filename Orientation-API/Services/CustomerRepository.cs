@@ -11,7 +11,7 @@ using Orientation_API.Models;
 
 namespace Orientation_API.Services
 {
-    public class CustomerRepository
+    public class ComputerRepository
     {
         public IEnumerable<CustomerModel> Get()
         {
