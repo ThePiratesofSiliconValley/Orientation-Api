@@ -31,5 +31,10 @@ app.config(["$routeProvider", function ($routeProvider) {
         {
             templateUrl: "/app/partials/create-department.html",
             controller: "CreateDepartmentController"
+        })
+        .when("/newemployee",
+        {
+            templateUrl: "/app/partials/newemployee.html",
+            controller: "NewEmployeeController"
         });
 }]);
