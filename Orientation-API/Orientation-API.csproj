@@ -120,6 +120,7 @@
     <Content Include="app\controllers\ComputersController.js" />
     <Content Include="app\controllers\EmployeesController.js" />
     <Content Include="app\controllers\HomeController.js" />
+    <Content Include="app\controllers\NewEmployeeController.js" />
     <Content Include="app\partials\create-department.html" />
     <Content Include="app\controllers\NewComputerController.js" />
     <Content Include="app\partials\departments.html" />
@@ -175,6 +176,7 @@
     <Compile Include="Models\EmployeeDto.cs" />
     <Compile Include="Models\DepartmentsDto.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\NewEmployeeDto.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\PlaceOrderDto.cs" />
     <Compile Include="Models\CustomerDto.cs" />

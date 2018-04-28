@@ -1,29 +1,26 @@
 ﻿<h2>Add A New Employee</h2>
-
-<form>
-    <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input type="text" class="form-control" id="firstName" placeholder="First Name">
+<div class="container">
+    <div >
+        <form>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" ng-model="newEmployee.FirstName" placeholder="First Name">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" ng-model="newEmployee.LastName" placeholder="Last Name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFile">Hire Date</label>
+                <input type="date" id="hireDate">
+            </div>
+            <div>
+                <select ng-model="newEmployee.DepartmentId">
+                    <option ng-repeat="department in departments" value="{{department.DepartmentId}}">{{department.DepartmentName}}</option>
+                  
+                </select>
+            </div>
+            <button type="submit" class="btn btn-default" ng-click="submitNewEmployee(newEmployee)">Submit</button>
+        </form>
     </div>
-    <div class="form-group">
-        <label for="lastName">Last Name</label>
-        <input type="text" class="form-control" id="lastName" placeholder="Last Name">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputFile">File input</label>
-        <input type="date" id="hireDate">
-    </div>
-    <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Department<span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-        </ul>
-    </div>
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-</form>
+</div>

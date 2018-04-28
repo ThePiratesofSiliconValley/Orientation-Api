@@ -26,5 +26,28 @@ namespace Orientation_API.Services
                 return listOfEmployees;
             }            
         }
+
+        public bool AddNewEmployee(NewEmployeeDto employee)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+
+                var newEmployeeRecord = db.Execute(@"INSERT INTO [dbo].[Employees]
+                                                ([FirstName]
+                                                ,[LastName]
+                                                ,[DepartmentName]
+                                                ,[HireDate])
+                                            VALUES
+                                                (< FirstName, nvarchar(200),>
+                                                ,< LastName, nvarchar(200),>
+                                                ,< DepartmentId, ,>
+                                                ,< HireDate, date,>
+                                                ,< SeparationDate, date,>)", employee);
+
+                return newEmployeeRecord == 1;
+            }
+
+        }
     }
 }

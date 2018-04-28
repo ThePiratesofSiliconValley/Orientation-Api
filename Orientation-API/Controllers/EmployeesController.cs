@@ -21,5 +21,11 @@ namespace Orientation_API.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, displayEmployees);
         }
+
+        [HttpPost, Route("")]
+        public HttpResponseMessage AddEmployee(EmployeeDto employee)
+        {
+            
+        }
     }
 }
