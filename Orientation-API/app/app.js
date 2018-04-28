@@ -31,5 +31,10 @@ app.config(["$routeProvider", function ($routeProvider) {
         {
             templateUrl: "/app/partials/create-department.html",
             controller: "CreateDepartmentController"
+        })
+        .when("/deletecomputer/:id",
+        {
+            templateUrl: "/app/partials/deletecomputer.html",
+            controller: "DeleteComputerController"
         });
 }]);
