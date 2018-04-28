@@ -116,17 +116,21 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\controllers\CreateDepartmentController.js" />
+    <Content Include="app\controllers\CreateTrainingController.js" />
     <Content Include="app\controllers\DepartmentsController.js" />
     <Content Include="app\controllers\ComputersController.js" />
     <Content Include="app\controllers\EmployeesController.js" />
     <Content Include="app\controllers\HomeController.js" />
+    <Content Include="app\controllers\TrainingProgramController.js" />
     <Content Include="app\partials\create-department.html" />
     <Content Include="app\controllers\NewComputerController.js" />
+    <Content Include="app\partials\createTraining.html" />
     <Content Include="app\partials\departments.html" />
     <Content Include="app\partials\computers.html" />
     <Content Include="app\partials\employees.html" />
     <Content Include="app\partials\index.html" />
     <Content Include="app\partials\newcomputer.html" />
+    <Content Include="app\partials\TrainingPrograms.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\computers.css" />
@@ -163,6 +167,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\TrainingProgramsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -180,6 +185,7 @@
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\StatusCode.cs" />
+    <Compile Include="Models\TrainingProgramDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ComputerModifier.cs" />
     <Compile Include="Services\ComputerRespository.cs" />
@@ -189,6 +195,7 @@
     <Compile Include="Services\DepartmentsRepository.cs" />
     <Compile Include="Services\OrderRepository.cs" />
     <Compile Include="Services\ProductRepository.cs" />
+    <Compile Include="Services\TrainingProgramRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -212,7 +219,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\CreateTraining\" />
     <Folder Include="Views\Departments\" />
+    <Folder Include="Views\TrainingPrograms\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
