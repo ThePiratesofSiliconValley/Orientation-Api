@@ -37,7 +37,7 @@ namespace Orientation_API.Services
             using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
             {
                 db.Open();
-                var trainings = db.Query<TrainingProgramDto>("select * from TrainingPrograms");
+                var trainings = db.Query<TrainingProgramDto>("select * from TrainingPrograms where StartDay >= GETDATE()");
                 return trainings;
             }
         }
