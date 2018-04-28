@@ -36,5 +36,21 @@ app.config(["$routeProvider", function ($routeProvider) {
         {
             templateUrl: "/app/partials/newemployee.html",
             controller: "NewEmployeeController"
+        })
+        .when("/deletecomputer/:id",
+        {
+            templateUrl: "/app/partials/deletecomputer.html",
+            controller: "DeleteComputerController"
+        })
+        .when("/trainings",
+        {
+            templateUrl: "/app/partials/trainingPrograms.html",
+            controller: "TrainingProgramController"
+        })
+        .when("/trainings/new",
+        {
+            templateUrl: "/app/partials/createTraining.html",
+            controller: "CreateTrainingController"
         });
+
 }]);

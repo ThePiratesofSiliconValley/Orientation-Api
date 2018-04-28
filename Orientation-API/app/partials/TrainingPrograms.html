@@ -1,0 +1,23 @@
+﻿<div>
+    <h1>Training Programs</h1>
+</div>
+
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Start Day</th>
+                <th scope="col">End Day</th>
+                <th scope="col">Max Attendees</th>
+            </tr>
+        </thead>
+        <tr ng-repeat="training in trainings">
+            <td>{{training.TrainingName}}</td>
+            <td>{{training.StartDay}}</td>
+            <td>{{training.EndDay}}</td>
+            <td>{{training.MaxAttendees}}</td>
+        </tr>
+    </table>
+    <div><button ng-click="createTraining(training.TrainingId)">create</button></div>
+</div>

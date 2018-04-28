@@ -11,12 +11,8 @@
     };
 
     $scope.deleteComputer = function (id) {
-        $http.delete(`api/computers/${id}`).then(function () {
-            getAllComputers();
-        }).catch(function (error) {
-            console.log(error);
-        });
-    }
+        $location.path(`/deletecomputer/${id}`);
+    };
 
     getAllComputers();
 }]);
