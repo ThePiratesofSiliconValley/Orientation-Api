@@ -3,15 +3,9 @@
 
         $scope.message = "Training Program Details Page";
 
+        $http.get("/api/trainings/{trainingId}").then(function (result) {
+            $scope.trainings = result.data;
+        });
 
-
-        //$http.get("/api/trainings").then(function (result) {
-        //    $scope.trainings = result.data;
-
-        //});
-
-        //$scope.createTraining = (trainingId) => {
-        //    $location.path("trainings/new");
-        //};
     }
 ]);
