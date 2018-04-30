@@ -13,5 +13,6 @@ namespace Orientation_API.Models
         public DateTime StartDay { get; set; }
         public DateTime EndDay { get; set; }
         public int MaxAttendees { get; set; }
+        public string Details { get; set; }
     }
 }
