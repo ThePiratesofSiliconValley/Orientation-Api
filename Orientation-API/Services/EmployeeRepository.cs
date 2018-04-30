@@ -27,15 +27,15 @@ namespace Orientation_API.Services
             }            
         }
 
-        internal bool GetSingleEmployee(int id)
+        internal Employee GetSingleEmployee(int id)
         {
             using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
             {
                 db.Open();
 
-                var listOfEmployees = db.QueryFirst(@"SELECT * from employees where employeeId = @id", new { id });
+                var singleEmployee = db.QueryFirst<Employee>(@"SELECT * from employees where employeeId = @id", new { id });
 
-                return listOfEmployees != null;
+                return singleEmployee;
             }
         }
 

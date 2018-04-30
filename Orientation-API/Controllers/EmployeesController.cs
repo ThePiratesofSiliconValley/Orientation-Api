@@ -24,10 +24,10 @@ namespace Orientation_API.Controllers
         }
 
         [HttpPut, Route("{id}")]
-        public HttpResponseMessage EditEmployee(EmployeeEditDto employee, int id)
+        public HttpResponseMessage EditEmployee(int id, EmployeeEditDto employee)
         {
             var repo = new EmployeeRepository();
-            bool getEmployee;
+            Employee getEmployee;
 
             try
             {
