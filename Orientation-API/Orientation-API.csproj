@@ -123,6 +123,7 @@
     <Content Include="app\controllers\EmployeesController.js" />
     <Content Include="app\controllers\HomeController.js" />
     <Content Include="app\controllers\TrainingProgramController.js" />
+    <Content Include="app\controllers\TrainingProgramDetailsController.js" />
     <Content Include="app\partials\create-department.html" />
     <Content Include="app\controllers\NewComputerController.js" />
     <Content Include="app\partials\deletecomputer.html" />
