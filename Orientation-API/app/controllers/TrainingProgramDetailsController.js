@@ -3,6 +3,8 @@
 
         $scope.message = "Training Program Details Page";
 
+
+
         //$http.get("/api/trainings").then(function (result) {
         //    $scope.trainings = result.data;
 

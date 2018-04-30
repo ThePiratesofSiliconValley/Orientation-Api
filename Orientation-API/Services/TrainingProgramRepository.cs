@@ -43,5 +43,18 @@ namespace Orientation_API.Services
                 return trainings;
             }
         }
+
+        public TrainingProgramDto GetSingleTrainingProgram(int trainingId)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+                var singleTrainingProgram = db.QueryFirstOrDefault<TrainingProgramDto>(@"SELECT * 
+                                                                                         FROM TrainingPrograms 
+                                                                                         WHERE TrainingId = @trainingId", new { trainingId });
+
+                return singleTrainingProgram;
+            }
+        }
     }
 }

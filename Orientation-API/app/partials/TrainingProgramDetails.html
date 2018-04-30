@@ -1,1 +1,22 @@
 ﻿<h2>{{message}}</h2>
+
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Start Day</th>
+                <th scope="col">End Day</th>
+                <th scope="col">Max Attendees</th>
+            </tr>
+        </thead>
+        <tr ng-repeat="training in trainings">
+            <td>{{training.TrainingName}}</td>
+            <td>{{training.StartDay}}</td>
+            <td>{{training.EndDay}}</td>
+            <td>{{training.MaxAttendees}}</td>
+            <td><button class="btn btn-success btn-sm" ng-click="">Edit</button></td>
+        </tr>
+    </table>
+    <div><button class="btn btn-success" ng-click="createTraining(training.TrainingId)">Create</button></div>
+</div>
