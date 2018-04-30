@@ -11,6 +11,10 @@
         $scope.createTraining = (trainingId) => {
             $location.path("trainings/new");
         };
+
+        $scope.viewTrainingDetails = (trainingId) => {
+            $location.path("trainings/details");
+        };
     }
 ]);
 
