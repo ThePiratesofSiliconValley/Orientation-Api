@@ -26,5 +26,21 @@ namespace Orientation_API.Services
                 return listOfEmployees;
             }            
         }
+
+        public bool UpdateEmployee(Employee employee)
+        {
+            return true;
+        }
+    }
+
+    public class Employee
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int DepartmentId { get; set; }
+        public int EmployeeId { get; set; }
+        public DateTime HireDate { get; set; }
+        public DateTime SeparationDate { get; set; }
+        public int ComputerId { get; set; }
     }
 }
