@@ -164,6 +164,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ComputersController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Models\EmployeeEditDto.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

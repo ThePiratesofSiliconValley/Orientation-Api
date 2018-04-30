@@ -2,6 +2,7 @@
 using Orientation_API.Services;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -22,10 +23,33 @@ namespace Orientation_API.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, displayEmployees);
         }
 
-        //[HttpPut, Route("{id}")]
-        //public HttpResponseMessage EditEmployee(EmployeeEditDto employee, int id)
-        //{
+        [HttpPut, Route("{id}")]
+        public HttpResponseMessage EditEmployee(EmployeeEditDto employee, int id)
+        {
+            var repo = new EmployeeRepository();
+            bool getEmployee;
 
-        //}
+            try
+            {
+                getEmployee = repo.GetSingleEmployee(id);
+            }
+            catch (SqlException)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong updating this employee, please try again later.");
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "That user does not exist.");
+            }
+
+            var updatedEmployee = repo.ConvertEmployee(employee, id);
+            var updateEmployee = repo.UpdateEmployee(updatedEmployee);
+
+            return updateEmployee
+                ? Request.CreateResponse(HttpStatusCode.OK)
+                : Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong updating this employee, please try again later.");
+        }
     }
+
+
 }

@@ -27,6 +27,18 @@ namespace Orientation_API.Services
             }            
         }
 
+        internal bool GetSingleEmployee(int id)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+
+                var listOfEmployees = db.QueryFirst(@"SELECT * from employees where employeeId = @id", new { id });
+
+                return listOfEmployees != null;
+            }
+        }
+
         public bool UpdateEmployee(Employee employee)
         {
             using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
@@ -43,6 +55,22 @@ namespace Orientation_API.Services
                                                      WHERE employeeId = @EmployeeId", employee);
                 return result == 1;
             }
+        }
+
+        public Employee ConvertEmployee(EmployeeEditDto employee, int id)
+        {
+            var convertedEmployee = new Employee
+            {
+                FirstName = employee.FirstName,
+                LastName = employee.LastName,
+                DepartmentId = employee.DepartmentId,
+                EmployeeId = id,
+                HireDate = employee.HireDate,
+                SeparationDate = employee.SeparationDate,
+                ComputerId = employee.ComputerId
+            };
+
+            return convertedEmployee;
         }
     }
 
