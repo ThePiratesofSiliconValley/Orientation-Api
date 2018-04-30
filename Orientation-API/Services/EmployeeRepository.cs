@@ -29,7 +29,20 @@ namespace Orientation_API.Services
 
         public bool UpdateEmployee(Employee employee)
         {
-            return true;
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+
+                var result = db.Execute(@"UPDATE Employees
+                                                       SET FirstName = @FirstName
+                                                          ,LastName = @LastName
+                                                          ,DepartmentId = @DepartmentId
+                                                          ,HireDate = @HireDate
+                                                          ,SeparationDate = @SeparationDate
+                                                          ,ComputerId = @ComputerId
+                                                     WHERE employeeId = @EmployeeId", employee);
+                return result == 1;
+            }
         }
     }
 
