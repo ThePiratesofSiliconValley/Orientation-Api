@@ -13,7 +13,7 @@
         };
 
         $scope.viewTrainingDetails = (trainingId) => {
-            $location.path("trainings/details");
+            $location.path(`trainings/details/${trainingId}`);
         };
     }
 ]);
