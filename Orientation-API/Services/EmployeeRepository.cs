@@ -36,14 +36,13 @@ namespace Orientation_API.Services
                 var newEmployeeRecord = db.Execute(@"INSERT INTO [dbo].[Employees]
                                                 ([FirstName]
                                                 ,[LastName]
-                                                ,[DepartmentName]
+                                                ,[DepartmentId]
                                                 ,[HireDate])
                                             VALUES
-                                                (< FirstName, nvarchar(200),>
-                                                ,< LastName, nvarchar(200),>
-                                                ,< DepartmentId, ,>
-                                                ,< HireDate, date,>
-                                                ,< SeparationDate, date,>)", employee);
+                                                (@FirstName
+                                                ,@LastName
+                                                ,@DepartmentId
+                                                ,@HireDate)", employee);
 
                 return newEmployeeRecord == 1;
             }

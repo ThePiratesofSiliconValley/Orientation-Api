@@ -1,4 +1,4 @@
-﻿app.controller("NewEmployeeController", ["$scope", "$http", function ($scope, $http) {
+﻿app.controller("NewEmployeeController", ["$scope", "$http", "$location", function ($scope, $http, $location) {
 
     $scope.newEmployee = {};
     $scope.departments = {};
@@ -13,19 +13,13 @@
         $scope.departments = results.data;
     });
 
-    $scope.createNewEmployee = function (newEmployee) {
-        return $http.post("/api/employees", JSON.stringify(newEmployee));
+    var createNewEmployee = function (newEmployee) {
+        return $http.post("/api/employees", newEmployee);
     };
 
     $scope.submitNewEmployee = function (newEmployee) {
-        var newEmployee = {
-            "FirstName": $scope.newEmployee.FirstName,
-            "LastName": $scope.newEmployee.LastName,
-            "DepartmentName": $scope.newEmployee.DepartmentName
-        };
-
         createNewEmployee(newEmployee).then(function () {
-            $location.("/employees");
+            $location.path("/employees");
         }).catch(function (error) {
             console.log(error);
         });
