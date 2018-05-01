@@ -22,12 +22,13 @@
             <th>Details</th>
             <td>{{training.Details}}</td>
         </tr>
-        <tr>
+        <!--<tr>
             <th>Employees Attending:</th>
-            <td></td>
-        </tr>
-        <tr>
-            <td colspan="2"><button class="btn btn-success btn-sm" ng-click="">Edit</button></td>
-        </tr>
+            <td ng-repeat="training in trainings">{{training.FirstName}} {{training.LastName}}</td>
+        </tr>-->
     </table>
+</div>
+
+<div>
+    <button class="btn btn-success" ng-click="editTrainingProgram(training.TrainingId)">Edit</button>
 </div>

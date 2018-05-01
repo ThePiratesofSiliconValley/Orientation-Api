@@ -15,5 +15,9 @@
 
         getTraining();
 
+        $scope.editTrainingProgram = (trainingId) => {
+            $location.path(`trainings/edit/${trainingId}`);
+        };
+
     }
 ]);
