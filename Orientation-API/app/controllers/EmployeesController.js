@@ -7,7 +7,7 @@
     });
 
     $scope.AddNewEmployee = function () {
-        $location.path("newemployee")
+        $location.path("/newemployee")
     };
 
 }]);
