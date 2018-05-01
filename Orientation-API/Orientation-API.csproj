@@ -195,6 +195,7 @@
     <Compile Include="Services\ComputerRespository.cs" />
     <Compile Include="Services\CustomerModifier.cs" />
     <Compile Include="Services\CustomerRepository.cs" />
+    <Compile Include="Services\EmployeeModifier.cs" />
     <Compile Include="Services\EmployeeRepository.cs" />
     <Compile Include="Services\DepartmentsRepository.cs" />
     <Compile Include="Services\OrderRepository.cs" />

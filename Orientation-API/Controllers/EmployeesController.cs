@@ -27,27 +27,23 @@ namespace Orientation_API.Controllers
         public HttpResponseMessage EditEmployee(int id, EmployeeEditDto employee)
         {
             var repo = new EmployeeRepository();
-            Employee getEmployee;
+            var employeeEdit = new EmployeeModifier();
+            var changeEmployee = repo.ConvertEmployee(employee, id);
+            var makeEditsToEmployee = employeeEdit.EditEmployee(changeEmployee);
 
-            try
-            {
-                getEmployee = repo.GetSingleEmployee(id);
-            }
-            catch (SqlException)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong updating this employee, please try again later.");
-            }
-            catch (Exception)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "That user does not exist.");
-            }
 
-            var updatedEmployee = repo.ConvertEmployee(employee, id);
-            var updateEmployee = repo.UpdateEmployee(updatedEmployee);
-
-            return updateEmployee
-                ? Request.CreateResponse(HttpStatusCode.OK)
-                : Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong updating this employee, please try again later.");
+            switch (makeEditsToEmployee)
+            {
+                case Models.StatusCode.NotFound:
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, "That user does not exist.");
+                case Models.StatusCode.Success:
+                    return Request.CreateResponse(HttpStatusCode.OK);
+                case Models.StatusCode.Unsuccessful:
+                    return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong updating this employee, please try again later.");
+                default:
+                    return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong updating this employee, please try again later.");
+            }
+            
         }
 
         [HttpPost, Route("{id}/trainings/{trainingId}")]
