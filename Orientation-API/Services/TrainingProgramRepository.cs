@@ -52,13 +52,7 @@ namespace Orientation_API.Services
                 var singleTrainingProgram = db.QueryFirstOrDefault<TrainingProgramDto>(@"SELECT * 
                                                                                          FROM TrainingPrograms 
                                                                                          WHERE TrainingId = @trainingId", new { trainingId });
-
-                //var singleTrainingProgram = db.QueryFirstOrDefault<EmployeeTrainingDto>(@"select e.*, t.*
-                //                                                                          from Employees e
-                //                                                                          left join EmployeeTraining et on e.EmployeeId = et.EmployeeId
-                //                                                                          left join TrainingPrograms t on t.TrainingId = et.TrainingId
-                //                                                                          where t.TrainingId = @trainingId", new { trainingId });
-
+                
                 return singleTrainingProgram;
             }
         }

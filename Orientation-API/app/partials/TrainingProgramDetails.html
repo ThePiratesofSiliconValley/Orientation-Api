@@ -1,32 +1,32 @@
 ﻿<h2>{{message}}</h2>
 
 <div>
-    <table class="table table-striped">
-        <tr>
-            <th>Name</th>
-            <td>{{training.TrainingName}}</td>
-        </tr>
-        <tr>
-            <th>Start Day</th>
-            <td>{{training.StartDay}}</td>
-        </tr>
-        <tr>
-            <th>End Day</th>
-            <td>{{training.EndDay}}</td>
-        </tr>
-        <tr>
-            <th>Max Attendees</th>
-            <td>{{training.MaxAttendees}}</td>
-        </tr>
-        <tr>
-            <th>Details</th>
-            <td>{{training.Details}}</td>
-        </tr>
-        <!--<tr>
-            <th>Employees Attending:</th>
-            <td ng-repeat="training in trainings">{{training.FirstName}} {{training.LastName}}</td>
-        </tr>-->
-    </table>
+    <div>
+        <strong>Name:</strong> {{training.TrainingName}}
+    </div>
+    <div>
+        <strong>Start Day:</strong> {{training.StartDay}}
+    </div>
+    <div>
+        <strong>End Day:</strong> {{training.EndDay}}
+    </div>
+    <div>
+        <strong>Max Attendees:</strong> {{training.MaxAttendees}}
+    </div>
+    <div>
+        <strong>Start Day:</strong> {{training.StartDay}}
+    </div>
+    <div>
+        <strong>Details:</strong> {{training.Details}}
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <strong>Employees Attending:</strong>
+        </div>
+        <div ng-repeat="employee in employees" class="col-md-2">
+            {{employee.FirstName}} {{employee.LastName}}
+        </div>
+    </div>
 </div>
 
 <div>

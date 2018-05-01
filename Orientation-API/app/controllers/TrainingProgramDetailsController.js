@@ -19,5 +19,17 @@
             $location.path(`trainings/edit/${trainingId}`);
         };
 
+        $scope.employees = {};
+
+        function getEmployees() {
+            $http.get(`api/employees/${$routeParams.id}`).then(function (result) {
+                $scope.employees = result.data;
+            }).catch(function (error) {
+                console.log("error in training program details getEmployees", error);
+            });
+        }
+
+        getEmployees();
+
     }
 ]);
