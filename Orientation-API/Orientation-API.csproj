@@ -195,6 +195,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\StatusCode.cs" />
     <Compile Include="Models\TrainingProgramDto.cs" />
+    <Compile Include="Models\TrainingProgramModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ComputerModifier.cs" />
     <Compile Include="Services\ComputerRespository.cs" />
