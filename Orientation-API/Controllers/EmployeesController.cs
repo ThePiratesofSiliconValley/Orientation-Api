@@ -50,12 +50,18 @@ namespace Orientation_API.Controllers
                 : Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong updating this employee, please try again later.");
         }
 
-        //[HttpGet, Route("{id}")]
-        //public HttpResponseMessage GetAllEmployeeTrainings(int id)
-        //{
-        //    var
-        //}
-    }
+        [HttpPost, Route("{id}/trainings/{trainingId}")]
+        public HttpResponseMessage AddTraining(int id, int trainingId)
+        {
+            var repo = new EmployeeRepository();
+            var addTraining = repo.AddTrainingToEmployee(id, trainingId);
 
+            return addTraining
+                ? Request.CreateResponse(HttpStatusCode.Created, "A training has been added to this employee!")
+                : Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "There was an error creating this training, please try again later.");
+        }
+
+
+    }
 
 }
