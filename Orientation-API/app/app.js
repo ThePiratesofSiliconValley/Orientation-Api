@@ -12,6 +12,16 @@ app.config(["$routeProvider", function ($routeProvider) {
             templateUrl: "/app/partials/departments.html",
             controller: "DepartmentsController"
         })
+        .when("/create-department",
+        {
+            templateUrl: "/app/partials/create-department.html",
+            controller: "CreateDepartmentController"
+        })
+        .when("/departmentdetails/:id",
+        {
+            templateUrl: "/app/partials/departmentdetails.html",
+            controller: "DepartmentDetailsController"
+        })
         .when("/computers",
         {
             templateUrl: "/app/partials/computers.html",
@@ -26,11 +36,6 @@ app.config(["$routeProvider", function ($routeProvider) {
         {
             templateUrl: "/app/partials/employees.html",
             controller: "EmployeesController"
-        })
-        .when("/create-department",
-        {
-            templateUrl: "/app/partials/create-department.html",
-            controller: "CreateDepartmentController"
         })
         .when("/newemployee",
         {
