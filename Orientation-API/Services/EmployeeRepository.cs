@@ -90,6 +90,17 @@ namespace Orientation_API.Services
             }
         }
 
+        public bool DeleteTraining(int id)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+
+                var result = db.Execute("delete from employeetraining where employeetrainingid = @id", new { id });
+
+                return result == 1;
+            }
+        }
     }
 
 }
