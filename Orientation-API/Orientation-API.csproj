@@ -184,6 +184,7 @@
     <Compile Include="Models\EmployeeDto.cs" />
     <Compile Include="Models\DepartmentsDto.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\EmployeeTrainingDto.cs" />
     <Compile Include="Models\NewEmployeeDto.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\PlaceOrderDto.cs" />
