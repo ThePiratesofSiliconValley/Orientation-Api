@@ -20,16 +20,16 @@ namespace Orientation_API.Services
 
                 var createTraining = db.Execute(@"INSERT INTO [dbo].[TrainingPrograms]
                                            ([TrainingName]
-                                           ,[Details]
                                            ,[StartDay]
                                            ,[EndDay]
-                                           ,[MaxAttendees])
+                                           ,[MaxAttendees]
+                                           ,[Details])
                                      VALUES
                                            (@TrainingName
-                                           ,@Details
                                            ,@StartDay
                                            ,@EndDay
-                                           ,@MaxAttendees)", training);
+                                           ,@MaxAttendees
+                                           ,@Details)", training);
                 return createTraining == 1;
             }
         }
