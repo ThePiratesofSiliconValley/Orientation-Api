@@ -129,6 +129,7 @@
     <Content Include="app\partials\createTraining.html" />
     <Content Include="app\partials\departments.html" />
     <Content Include="app\partials\computers.html" />
+    <Content Include="app\partials\employeeDetails.html" />
     <Content Include="app\partials\employees.html" />
     <Content Include="app\partials\index.html" />
     <Content Include="app\partials\newcomputer.html" />
@@ -181,6 +182,7 @@
     <Compile Include="Models\EmployeeDto.cs" />
     <Compile Include="Models\DepartmentsDto.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\EmployeeTrainingDto.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\PlaceOrderDto.cs" />
     <Compile Include="Models\CustomerDto.cs" />
@@ -195,6 +197,7 @@
     <Compile Include="Services\CustomerRepository.cs" />
     <Compile Include="Services\EmployeeRepository.cs" />
     <Compile Include="Services\DepartmentsRepository.cs" />
+    <Compile Include="Services\EmployeeTrainingRepository.cs" />
     <Compile Include="Services\OrderRepository.cs" />
     <Compile Include="Services\ProductRepository.cs" />
     <Compile Include="Services\TrainingProgramRepository.cs" />
