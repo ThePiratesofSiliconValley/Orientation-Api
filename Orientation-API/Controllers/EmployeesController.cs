@@ -30,5 +30,14 @@ namespace Orientation_API.Controllers
 
             return Request.CreateResponse(HttpStatusCode.Created, employeeInfo);
         }
+
+        [HttpGet, Route("{trainingId}")]
+        public HttpResponseMessage GetByTraining(int trainingId)
+        {
+            var employeeRepository = new EmployeeRepository();
+            var employeesByTraining = employeeRepository.GetEmployeesByTraining(trainingId);
+
+            return Request.CreateResponse(HttpStatusCode.OK, employeesByTraining);
+        }
     }
 }
