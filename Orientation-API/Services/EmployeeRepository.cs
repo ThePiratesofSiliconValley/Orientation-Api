@@ -72,16 +72,24 @@ namespace Orientation_API.Services
 
             return convertedEmployee;
         }
+
+        public bool AddTrainingToEmployee(int employeeId, int trainingId)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+
+                var result = db.Execute(@"INSERT INTO EmployeeTraining
+                                                           (EmployeeId
+                                                           ,TrainingId)
+                                                     VALUES
+                                                           (@employeeId
+                                                           ,@trainingId)", new { employeeId, trainingId });
+
+                return result == 1;
+            }
+        }
+
     }
 
-    public class Employee
-    {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public int DepartmentId { get; set; }
-        public int EmployeeId { get; set; }
-        public DateTime HireDate { get; set; }
-        public DateTime SeparationDate { get; set; }
-        public int ComputerId { get; set; }
-    }
 }

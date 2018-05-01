@@ -49,6 +49,12 @@ namespace Orientation_API.Controllers
                 ? Request.CreateResponse(HttpStatusCode.OK)
                 : Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong updating this employee, please try again later.");
         }
+
+        //[HttpGet, Route("{id}")]
+        //public HttpResponseMessage GetAllEmployeeTrainings(int id)
+        //{
+        //    var
+        //}
     }
 
 
