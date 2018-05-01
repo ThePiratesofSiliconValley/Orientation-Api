@@ -22,12 +22,14 @@ namespace Orientation_API.Services
                                            ([TrainingName]
                                            ,[StartDay]
                                            ,[EndDay]
-                                           ,[MaxAttendees])
+                                           ,[MaxAttendees]
+                                           ,[Details])
                                      VALUES
                                            (@TrainingName
                                            ,@StartDay
                                            ,@EndDay
-                                           ,@MaxAttendees)", training);
+                                           ,@MaxAttendees
+                                           ,@Details)", training);
                 return createTraining == 1;
             }
         }
@@ -39,6 +41,19 @@ namespace Orientation_API.Services
                 db.Open();
                 var trainings = db.Query<TrainingProgramDto>("select * from TrainingPrograms where StartDay >= GETDATE()");
                 return trainings;
+            }
+        }
+
+        public TrainingProgramDto GetSingleTrainingProgram(int trainingId)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+                var singleTrainingProgram = db.QueryFirstOrDefault<TrainingProgramDto>(@"SELECT * 
+                                                                                         FROM TrainingPrograms 
+                                                                                         WHERE TrainingId = @trainingId", new { trainingId });
+                
+                return singleTrainingProgram;
             }
         }
     }

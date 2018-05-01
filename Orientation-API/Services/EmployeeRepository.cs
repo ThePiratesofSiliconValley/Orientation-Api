@@ -48,5 +48,20 @@ namespace Orientation_API.Services
             }
 
         }
+
+        public IEnumerable<EmployeeModel> GetEmployeesByTraining(int trainingId)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+
+                var employeeByTraining = db.Query<EmployeeModel>(@"select e.*, et.*
+                                                                   from Employees e
+                                                                   join EmployeeTraining et on e.EmployeeId = et.EmployeeId
+                                                                   where TrainingId = @trainingId", new { trainingId });
+                
+                return employeeByTraining;
+            }
+        }
     }
 }
