@@ -2,19 +2,27 @@
 
 <div>
     <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Start Day</th>
-                <th scope="col">End Day</th>
-                <th scope="col">Max Attendees</th>
-            </tr>
-        </thead>
         <tr>
+            <th>Name</th>
             <td>{{training.TrainingName}}</td>
+        </tr>
+        <tr>
+            <th>Start Day</th>
             <td>{{training.StartDay}}</td>
+        </tr>
+        <tr>
+            <th>End Day</th>
             <td>{{training.EndDay}}</td>
+        </tr>
+        <tr>
+            <th>Max Attendees</th>
             <td>{{training.MaxAttendees}}</td>
+        </tr>
+        <tr>
+            <th>Details</th>
+            <td>{{training.Details}}</td>
+        </tr>
+        <tr>
             <td><button class="btn btn-success btn-sm" ng-click="">Edit</button></td>
         </tr>
     </table>
