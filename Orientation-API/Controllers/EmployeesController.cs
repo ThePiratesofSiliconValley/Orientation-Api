@@ -65,21 +65,6 @@ namespace Orientation_API.Controllers
         public HttpResponseMessage DeleteTrainings(int id)
         {
             var repo = new EmployeeRepository();
-            Employee getEmployee;
-
-            try
-            {
-                getEmployee = repo.GetSingleEmployee(id);
-            }
-            catch (SqlException)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong updating this employee, please try again later.");
-            }
-            catch (Exception)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "That user does not exist.");
-            }
-
             var deleteTraining = repo.DeleteTraining(id);
 
             return deleteTraining
