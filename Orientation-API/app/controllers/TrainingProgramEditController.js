@@ -5,15 +5,29 @@
 
         $scope.training = {};
 
-        function getTraining() {
-            $http.get(`api/trainings/${$routeParams.id}`).then(function (result) {
-                $scope.training = result.data;
-            }).catch(function (error) {
-                console.log("error in edit training program", error);
+        $scope.updateTraining = (inputData) => {
+            var editTraining = editTrainingObject(inputData);
+            postEditedTraining(editTraining).then(() => {
+                $location.path("/trainings");
+            }).catch((error) => {
+                console.log("error in updateTraining", error);
             });
-        }
+        };
 
-        getTraining();
+        var editTrainingObject = (training) => {
+            return {
+                "trainingName": training.trainingName,
+                "startDay": training.startDay,
+                "endDay": training.endDay,
+                "maxAttendees": training.maxAttendees,
+                "details": training.details,
+                "employeesAttending": training.employeesAttending
+            };
+        };
+
+        var postEditedTraining = (training) => {
+            return $http.put("api/trainings", JSON.stringify(training));
+        };
 
     }
 ]);
