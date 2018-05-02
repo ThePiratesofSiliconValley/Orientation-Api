@@ -51,5 +51,14 @@ namespace Orientation_API.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, editTrainingProgram);
         }
+
+        [HttpDelete, Route("{trainingId}")]
+        public HttpResponseMessage Delete(int trainingId)
+        {
+            var trainingProgramModifier = new TrainingProgramModifier();
+            var deleteTrainingProgram = trainingProgramModifier.Delete(trainingId);
+
+            return Request.CreateResponse(HttpStatusCode.OK, deleteTrainingProgram);
+        }
     }
 }
