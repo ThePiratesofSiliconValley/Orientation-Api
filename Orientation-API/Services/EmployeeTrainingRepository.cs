@@ -28,7 +28,7 @@ namespace Orientation_API.Services
                         from Employees e
 		
                                 join Departments d on d.DepartmentId = e.DepartmentId
-                                join Computers c on c.ComputerID = e.ComputerId
+                                left join Computers c on c.ComputerID = e.ComputerId
                                 where e.EmployeeId = @employeeId
 
                         select 
