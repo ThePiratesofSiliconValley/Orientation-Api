@@ -8,10 +8,10 @@
 
 
     $scope.employeeDetails = (employeeId) => {
-        $location.path(`/employees/${employeeId}`);
+        $location.path(`/employees/detail/${employeeId}`);
     };
     $scope.AddNewEmployee = function () {
-        $location.path("/newemployee")
+        $location.path("/newemployee");
     };
 
 

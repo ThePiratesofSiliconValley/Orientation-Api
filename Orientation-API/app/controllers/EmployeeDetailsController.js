@@ -2,7 +2,7 @@
     $scope.employee = {};
     $scope.message = "Current Employee";
     
-    $http.get(`/api/employees/${$routeParams.id}`).then(function (result) {
+    $http.get(`/api/employees/detail/${$routeParams.id}`).then(function (result) {
         $scope.employee = result.data;
     });
 }]);

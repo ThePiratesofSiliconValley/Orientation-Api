@@ -23,7 +23,7 @@ namespace Orientation_API.Controllers
 
         }
 
-        [HttpGet, Route("{id}")]
+        [HttpGet, Route("detail/{id}")]
         public HttpResponseMessage SingleEmployee(int id)
         {
             var employeeInfo = new EmployeeTrainingRepository();
