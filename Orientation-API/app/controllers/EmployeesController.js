@@ -6,8 +6,13 @@
         $scope.employees = result.data;
     });
 
-    $scope.AddNewEmployee = function () {
-        $location.path("/newemployee")
+
+    $scope.employeeDetails = (employeeId) => {
+        $location.path(`/employees/detail/${employeeId}`);
     };
+    $scope.AddNewEmployee = function () {
+        $location.path("/newemployee");
+    };
+
 
 }]);
