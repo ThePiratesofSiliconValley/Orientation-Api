@@ -35,5 +35,14 @@ namespace Orientation_API.Controllers
             
             return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Sorry, your new department cannot be created at this time.");
         }
+
+        [HttpGet, Route("{departmentId}")]
+        public HttpResponseMessage GetSingleDepartment(int departmentId)
+        {
+            var repo = new DepartmentsRepository();
+            var departmentDetails = repo.GetSingleDepartment(departmentId);
+
+            return Request.CreateResponse(HttpStatusCode.OK, departmentDetails);
+        }
     }
 }
