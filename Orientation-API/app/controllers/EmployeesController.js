@@ -10,5 +10,9 @@
     $scope.employeeDetails = (employeeId) => {
         $location.path(`/employees/${employeeId}`);
     };
+    $scope.AddNewEmployee = function () {
+        $location.path("/newemployee")
+    };
+
 
 }]);

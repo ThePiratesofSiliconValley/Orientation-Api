@@ -35,6 +35,12 @@ namespace Orientation_API.Controllers
             return Request.CreateResponse(HttpStatusCode.InternalServerError, "Training didn't save, try again");
         }
 
-
+        [HttpGet, Route("{trainingId}")]
+        public HttpResponseMessage GetSingle(int trainingId)
+        {
+            var trainingProgramRepository = new TrainingProgramRepository();
+            var singleTrainingProgram = trainingProgramRepository.GetSingleTrainingProgram(trainingId);
+            return Request.CreateResponse(HttpStatusCode.OK, singleTrainingProgram);
+        }
     }
 }
