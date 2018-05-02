@@ -66,6 +66,11 @@ app.config(["$routeProvider", function ($routeProvider) {
         {
             templateUrl: "/app/partials/TrainingProgramEdit.html",
             controller: "TrainingProgramEditController"
+        })
+        .when("/trainings/delete/:id",
+        {
+            templateUrl: "/app/partials/TrainingProgramDelete.html",
+            controller: "TrainingProgramDeleteController"
         });
 
 }]);

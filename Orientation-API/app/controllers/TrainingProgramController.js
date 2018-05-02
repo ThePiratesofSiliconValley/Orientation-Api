@@ -15,6 +15,10 @@
         $scope.viewTrainingDetails = (trainingId) => {
             $location.path(`trainings/details/${trainingId}`);
         };
+
+        $scope.deleteTraining = (trainingId) => {
+            $location.path(`trainings/delete/${trainingId}`);
+        };
     }
 ]);
 

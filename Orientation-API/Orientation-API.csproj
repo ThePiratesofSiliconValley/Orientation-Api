@@ -125,6 +125,7 @@
     <Content Include="app\controllers\HomeController.js" />
     <Content Include="app\controllers\NewEmployeeController.js" />
     <Content Include="app\controllers\TrainingProgramController.js" />
+    <Content Include="app\controllers\TrainingProgramDeleteController.js" />
     <Content Include="app\controllers\TrainingProgramDetailsController.js" />
     <Content Include="app\controllers\TrainingProgramEditController.js" />
     <Content Include="app\partials\create-department.html" />
@@ -137,6 +138,7 @@
     <Content Include="app\partials\employees.html" />
     <Content Include="app\partials\index.html" />
     <Content Include="app\partials\newcomputer.html" />
+    <Content Include="app\partials\TrainingProgramDelete.html" />
     <Content Include="app\partials\TrainingProgramDetails.html" />
     <Content Include="app\partials\TrainingProgramEdit.html" />
     <Content Include="app\partials\TrainingPrograms.html" />
