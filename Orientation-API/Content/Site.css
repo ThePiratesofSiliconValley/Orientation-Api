@@ -19,3 +19,26 @@ textarea {
 .p-bottom {
     padding-bottom: 15px;
 }
+
+.empDetailTable {
+    font-size: 24px;
+    margin-top: 60px;
+    word-break: break-all;
+}
+
+.trainings {
+    font-size: 24px;
+    display: inline-block;
+    flex-wrap: wrap;
+    
+}
+
+#empldeetscontainer {
+    display: flex;
+}
+
+#heading {
+    margin-top: 40px;
+    font-size: 24px;
+    font-weight: bold;
+}
