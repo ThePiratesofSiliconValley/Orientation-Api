@@ -5,13 +5,11 @@ using System.Web;
 
 namespace Orientation_API.Models
 {
-    public class EmployeeModel
+    public class NewEmployeeDto
     {
-        public int EmployeeId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string DepartmentName { get; set; }
+        public int DepartmentId { get; set; }
         public DateTime HireDate { get; set; }
-        public DateTime? SeparationDate { get; set; }
     }
 }

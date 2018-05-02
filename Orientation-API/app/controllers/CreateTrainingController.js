@@ -15,9 +15,10 @@
                 "trainingName": training.trainingName,
                 "startDay": training.startDay,
                 "endDay": training.endDay,
-                "maxAttendees": training.maxAttendees
+                "maxAttendees": training.maxAttendees,
+                "details": training.details
             };
-        }
+        };
 
         var postNewTraining = (training) => {
             return $http.post("api/trainings", JSON.stringify(training));

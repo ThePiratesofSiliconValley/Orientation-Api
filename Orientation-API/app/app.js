@@ -32,6 +32,11 @@ app.config(["$routeProvider", function ($routeProvider) {
             templateUrl: "/app/partials/create-department.html",
             controller: "CreateDepartmentController"
         })
+        .when("/newemployee",
+        {
+            templateUrl: "/app/partials/newemployee.html",
+            controller: "NewEmployeeController"
+        })
         .when("/deletecomputer/:id",
         {
             templateUrl: "/app/partials/deletecomputer.html",
@@ -51,6 +56,16 @@ app.config(["$routeProvider", function ($routeProvider) {
         {
             templateUrl: "/app/partials/editemployee.html",
             controller: "EditEmployeeController"
+        })
+        .when("/trainings/details/:id",
+        {
+            templateUrl: "/app/partials/TrainingProgramDetails.html",
+            controller: "TrainingProgramDetailsController"
+        })
+        .when("/trainings/edit/:id",
+        {
+            templateUrl: "/app/partials/TrainingProgramEdit.html",
+            controller: "TrainingProgramEditController"
         });
 
 }]);
