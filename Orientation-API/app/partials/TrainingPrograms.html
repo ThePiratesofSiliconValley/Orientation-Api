@@ -16,7 +16,7 @@
             <td>{{training.StartDay}}</td>
             <td>{{training.EndDay}}</td>
             <td><button class="btn btn-primary btn-sm" ng-click="viewTrainingDetails(training.TrainingId)">View Details</button></td>
-            <td><button class="btn btn-danger btn-sm" ng-click="deleteTraining()">Delete</button></td>
+            <td><button class="btn btn-danger btn-sm" ng-click="deleteTraining(training.TrainingId)">Delete</button></td>
         </tr>
     </table>
     <div><button class="btn btn-success" ng-click="createTraining(training.TrainingId)">Create</button></div>
