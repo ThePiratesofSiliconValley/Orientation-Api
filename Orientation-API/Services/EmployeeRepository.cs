@@ -27,7 +27,7 @@ namespace Orientation_API.Services
             }            
         }
 
-        internal Employee GetSingleEmployee(int id)
+        public Employee GetSingleEmployee(int id)
         {
             using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
             {
@@ -138,6 +138,7 @@ namespace Orientation_API.Services
                 return result == 1;
             }
         }
+
     }
 
 }

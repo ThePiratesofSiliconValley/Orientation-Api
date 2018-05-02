@@ -80,7 +80,7 @@ namespace Orientation_API.Services
             {
                 db.Open();
 
-                var result = db.QueryFirst("select * from Computers where computerId = @computerId and employeeID is null", new { computerId });
+                var result = db.QueryFirst("select * from employees where computerId = @computerId", new { computerId });
 
                 return result != null;
             }
@@ -95,6 +95,21 @@ namespace Orientation_API.Services
                 var result = db.Execute("delete from computers where computerId = @id", new { id });
 
                 return result == 1;
+            }
+        }
+
+        public List<Computer> GetAllUnassigned()
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+
+                var result = db.Query<Computer>(@"select c.ComputerID, c.ComputerMake, c.ComputerManufacturer from Computers c
+                                                  left join Employees e on e.ComputerId = c.ComputerID
+                                                  where e.ComputerId is null
+                                                  ").ToList();
+
+                return result;
             }
         }
     }

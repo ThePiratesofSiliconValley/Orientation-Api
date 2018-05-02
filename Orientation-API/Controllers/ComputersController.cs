@@ -54,6 +54,17 @@ namespace Orientation_API.Controllers
                     return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Something went wrong, please try again later.");
             }                
         }
+
+        [HttpGet, Route("{id}/unassigned")]
+        public HttpResponseMessage GetUnassigned()
+        {
+            var repo = new ComputerRespository();
+            var results = repo.GetAllUnassigned();
+            var resultsDto = repo.ComputerReturn(results);
+
+            return Request.CreateResponse(HttpStatusCode.OK, resultsDto);
+        }
+
     }
 
 }
