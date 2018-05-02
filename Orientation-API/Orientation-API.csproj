@@ -120,6 +120,7 @@
     <Content Include="app\controllers\CreateTrainingController.js" />
     <Content Include="app\controllers\DepartmentsController.js" />
     <Content Include="app\controllers\ComputersController.js" />
+    <Content Include="app\controllers\EmployeeDetailsController.js" />
     <Content Include="app\controllers\EmployeesController.js" />
     <Content Include="app\controllers\HomeController.js" />
     <Content Include="app\controllers\NewEmployeeController.js" />
@@ -132,6 +133,7 @@
     <Content Include="app\partials\createTraining.html" />
     <Content Include="app\partials\departments.html" />
     <Content Include="app\partials\computers.html" />
+    <Content Include="app\partials\employeeDetails.html" />
     <Content Include="app\partials\employees.html" />
     <Content Include="app\partials\index.html" />
     <Content Include="app\partials\newcomputer.html" />
@@ -203,6 +205,7 @@
     <Compile Include="Services\CustomerRepository.cs" />
     <Compile Include="Services\EmployeeRepository.cs" />
     <Compile Include="Services\DepartmentsRepository.cs" />
+    <Compile Include="Services\EmployeeTrainingRepository.cs" />
     <Compile Include="Services\OrderRepository.cs" />
     <Compile Include="Services\ProductRepository.cs" />
     <Compile Include="Services\TrainingProgramModifier.cs" />
