@@ -23,5 +23,9 @@
             });
         };
 
+        $scope.nevermindDoNotDelete = () => {
+            $location.path("/trainings");
+        };
+
     }
 ]);
