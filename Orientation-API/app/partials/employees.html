@@ -11,7 +11,7 @@
             <th>Department</th>
         </tr>
         <tr ng-repeat="employee in employees | orderBy: 'EmployeeName'">
-            <td>{{employee.EmployeeName}}</td>
+            <td><a ng-click="employeeDetails(employee.EmployeeId)" >{{employee.EmployeeName}}</a></td>
             <td>{{employee.DepartmentName}}</td>
         </tr>
     </table>

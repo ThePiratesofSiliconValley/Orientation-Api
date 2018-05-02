@@ -42,5 +42,14 @@ namespace Orientation_API.Controllers
             var singleTrainingProgram = trainingProgramRepository.GetSingleTrainingProgram(trainingId);
             return Request.CreateResponse(HttpStatusCode.OK, singleTrainingProgram);
         }
+
+        [HttpPut, Route("{trainingId}")]
+        public HttpResponseMessage Edit(int trainingId, TrainingProgramDto training)
+        {
+            var trainingProgramModifier = new TrainingProgramModifier();
+            var editTrainingProgram = trainingProgramModifier.Update(trainingId, training);
+
+            return Request.CreateResponse(HttpStatusCode.OK, editTrainingProgram);
+        }
     }
 }

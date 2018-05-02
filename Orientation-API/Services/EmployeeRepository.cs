@@ -17,7 +17,7 @@ namespace Orientation_API.Services
             {
                 db.Open();
 
-                var listOfEmployees = db.Query<EmployeeDto>(@"SELECT e.FirstName + ' ' + e.LastName as EmployeeName,
+                var listOfEmployees = db.Query<EmployeeDto>(@"SELECT e.FirstName + ' ' + e.LastName as EmployeeName, e.EmployeeId,
                                                                      d.DepartmentName
                                                               FROM Employees e
                                                               JOIN Departments d on d.DepartmentId = e.DepartmentId

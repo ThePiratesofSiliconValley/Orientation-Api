@@ -21,6 +21,15 @@ namespace Orientation_API.Controllers
 
 
             return Request.CreateResponse(HttpStatusCode.OK, displayEmployees);
+
+        }
+
+        [HttpGet, Route("detail/{id}")]
+        public HttpResponseMessage SingleEmployee(int id)
+        {
+            var employeeInfo = new EmployeeTrainingRepository();
+            var displayEmployee = employeeInfo.GetSingle(id);
+            return Request.CreateResponse(HttpStatusCode.OK, displayEmployee);
         }
 
         [HttpPut, Route("{id}")]
