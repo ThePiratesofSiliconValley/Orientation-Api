@@ -31,5 +31,9 @@
 
         getEmployees();
 
+        $scope.deleteTraining = () => {
+            $location.path();
+        };
+
     }
 ]);
