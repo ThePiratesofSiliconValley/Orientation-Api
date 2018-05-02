@@ -21,6 +21,12 @@
 
                 </select>
             </div>
+            <div>
+                <select ng-model="editEmployee.ComputerId">
+                    <option ng-repeat="computer in unassignedComputers" value="{{department.DepartmentId}}">{{department.DepartmentName}}</option>
+
+                </select>
+            </div>
             <button type="submit" class="btn btn-default" ng-click="editEmployee(newEmployee)">Submit</button>
         </form>
     </div>
