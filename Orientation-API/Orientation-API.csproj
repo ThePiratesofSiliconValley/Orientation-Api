@@ -120,6 +120,7 @@
     <Content Include="app\controllers\CreateTrainingController.js" />
     <Content Include="app\controllers\DepartmentsController.js" />
     <Content Include="app\controllers\ComputersController.js" />
+    <Content Include="app\controllers\EmployeeDetailsController.js" />
     <Content Include="app\controllers\EmployeesController.js" />
     <Content Include="app\controllers\HomeController.js" />
     <Content Include="app\controllers\TrainingProgramController.js" />

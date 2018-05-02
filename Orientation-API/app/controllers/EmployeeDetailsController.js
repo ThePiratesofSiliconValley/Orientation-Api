@@ -1,0 +1,8 @@
+﻿app.controller("EmployeesDetailsController", ["$scope", "$http", "$location","$routeParams", function ($scope, $http, $location, $routeParams) {
+    $scope.employee = {};
+    $scope.message = "Current Employee";
+    
+    $http.get(`/api/employees/${$routeParams.id}`).then(function (result) {
+        $scope.employee = result.data;
+    });
+}]);

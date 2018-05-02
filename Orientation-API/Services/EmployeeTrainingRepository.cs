@@ -11,23 +11,42 @@ namespace Orientation_API.Services
 {
     public class EmployeeTrainingRepository
     {
-        public IEnumerable<EmployeeTrainingDto> GetSingle(int employeeId)
+        public EmployeeTrainingDto GetSingle(int employeeId)
         {
             using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
             {
                 db.Open();
 
                 var query =
-                    @"select et.EmployeeTrainingId, e.EmployeeId, e.ComputerId, c.ComputerID, t.TrainingId, c.ComputerMake, t.TrainingName, t.StartDay, t.EndDay from EmployeeTraining et
-                            join Employees e on e.EmployeeId = et.EmployeeId
-                            join TrainingPrograms t on t.TrainingId = et.TrainingId
-                            join Computers c on c.ComputerID = e.ComputerId
-                            where et.EmployeeId = @employeeId
-                            ";
-                var listOfEmployeeTraining = db.Query<EmployeeTrainingDto>(query,employeeId);
+                    @"select  
+                        e.FirstName,
+                        e.LastName,
+                        e.EmployeeId, 
+                        d.DepartmentName,
+                        c.ComputerMake
+
+                        from Employees e
+		
+                                join Departments d on d.DepartmentId = e.DepartmentId
+                                join Computers c on c.ComputerID = e.ComputerId
+                                where e.EmployeeId = @employeeId
+
+                        select 
+                        t.TrainingName
+	
+                        from EmployeeTraining et
+	                        join TrainingPrograms t on t.TrainingId = et.TrainingId		
+	                        where et.EmployeeId = @employeeId";
+
+                var employee = new EmployeeTrainingDto();
+                using (var multi = db.QueryMultiple(query, new {employeeId}))
+                {
+                    employee = multi.Read<EmployeeTrainingDto>().First();
+                    employee.TrainingName = multi.Read<string>().ToList();
+                }
+              
                 
-                
-                return listOfEmployeeTraining;
+                return employee;
             }
 
            
