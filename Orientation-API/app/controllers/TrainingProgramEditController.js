@@ -5,15 +5,24 @@
 
         $scope.training = {};
 
-        function getTraining() {
+        var getSingleTraining = function () {
             $http.get(`api/trainings/${$routeParams.id}`).then(function (result) {
-                $scope.training = result.data;
-            }).catch(function (error) {
-                console.log("error in edit training program", error);
-            });
-        }
+                result.data.StartDay = new Date(result.data.StartDay);
+                result.data.EndDay = new Date(result.data.EndDay);
 
-        getTraining();
+                $scope.training = result.data;
+            });
+        };
+
+        getSingleTraining();
+
+        $scope.updateTrainingProgram = function () {
+            $http.put(`api/trainings/${$routeParams.id}`, $scope.training).then(function () {
+                $location.path("/trainings");
+            }).catch(function (error) {
+                console.log("error in updateTrainingPrograms", error);
+            });
+        };
 
     }
 ]);

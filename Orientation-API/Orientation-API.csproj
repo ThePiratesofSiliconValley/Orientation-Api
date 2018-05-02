@@ -208,6 +208,7 @@
     <Compile Include="Services\EmployeeTrainingRepository.cs" />
     <Compile Include="Services\OrderRepository.cs" />
     <Compile Include="Services\ProductRepository.cs" />
+    <Compile Include="Services\TrainingProgramModifier.cs" />
     <Compile Include="Services\TrainingProgramRepository.cs" />
   </ItemGroup>
   <ItemGroup>
