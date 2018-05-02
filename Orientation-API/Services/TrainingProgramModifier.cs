@@ -37,5 +37,18 @@ namespace Orientation_API.Services
                 return updateTraining == 1;
             }
         }
+
+        public bool Delete(int trainingId)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+
+                var deleteTraining = db.Execute(@"DELETE FROM TrainingPrograms
+                                                    WHERE TrainingId = @trainingId", new { trainingId });
+
+                return deleteTraining == 1;
+            }
+        }
     }
 }
