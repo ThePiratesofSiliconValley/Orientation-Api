@@ -46,16 +46,6 @@ namespace Orientation_API.Controllers
         [HttpPut, Route("{trainingId}")]
         public HttpResponseMessage Edit(int trainingId, TrainingProgramDto training)
         {
-            //var dtoToTraining = new TrainingProgramModel
-            //{
-            //    TrainingId = training.TrainingId,
-            //    TrainingName = training.TrainingName,
-            //    StartDay = training.StartDay,
-            //    EndDay = training.EndDay,
-            //    MaxAttendees = training.MaxAttendees,
-            //    Details = training.Details
-            //};
-
             var trainingProgramModifier = new TrainingProgramModifier();
             var editTrainingProgram = trainingProgramModifier.Update(trainingId, training);
 
