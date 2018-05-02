@@ -1,10 +1,7 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+﻿<h1>{{department.DepartmentName}}</h1>
+<div>
+    <h3>Current Employees</h3>
+    <ul>
+        <li ng-repeat="employee in department.Employees">{{employee.FirstName}} {{employee.LastName}}</li>
+    </ul>
+</div>

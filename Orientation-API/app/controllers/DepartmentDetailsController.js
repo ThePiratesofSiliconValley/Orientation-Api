@@ -2,7 +2,7 @@
 
     $scope.department = {};
 
-    $http.getSingleDepartment("/departmentdetails/:id").then(function (result) {
+    $http.get(`api/departments/${$routeParams.id}`).then(function (result) {
         $scope.department = result.data;
     });
 
