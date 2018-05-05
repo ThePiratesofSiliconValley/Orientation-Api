@@ -42,5 +42,25 @@ namespace Orientation_API.Services
                 return createDepartment == 1;
             }
         }
+
+        public DepartmentModel GetSingleDepartment(int departmentId)
+        {
+            using (var db = CreateConnection())
+            {
+                db.Open();
+
+                var query = @"SELECT * from Departments WHERE departmentId = @departmentId
+                              Select e.* from Employees e where e.DepartmentId =  @departmentId";
+
+                DepartmentModel department;
+                using (var multi = db.QueryMultiple(query, new { departmentId }))
+                {
+                    department = multi.Read<DepartmentModel>().First();
+                    department.Employees = multi.Read<EmployeeModel>().ToList();
+                }
+
+                return department;
+            }
+        }
     }
 }
