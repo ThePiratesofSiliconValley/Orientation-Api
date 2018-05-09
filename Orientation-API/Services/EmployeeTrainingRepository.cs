@@ -23,7 +23,11 @@ namespace Orientation_API.Services
                         e.LastName,
                         e.EmployeeId, 
                         d.DepartmentName,
-                        c.ComputerMake
+                        c.ComputerMake,
+                        e.HireDate,
+                        e.SeparationDate,
+                        e.DepartmentId,
+                        e.ComputerId                            
 
                         from Employees e
 		

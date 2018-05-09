@@ -5,25 +5,26 @@
         <form>
             <div class="form-group">
                 <label for="firstName">First Name</label>
-                <input type="text" class="form-control" id="firstName" ng-model="editEmployee.FirstName" placeholder="First Name">
+                <input type="text" class="form-control" id="firstName" ng-model="employeeDetail.FirstName" placeholder="First Name">
             </div>
             <div class="form-group">
                 <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName" ng-model="editEmployee.LastName" placeholder="Last Name">
+                <input type="text" class="form-control" id="lastName" ng-model="employeeDetail.LastName" placeholder="Last Name">
             </div>
             <div class="form-group">
-                <label for="exampleInputFile">Hire Date</label>
-                <input type="date" id="hireDate" ng-model="editEmployee.HireDate">
+                <label for="exampleInputFile">Separation Date</label>
+                <input type="date" id="separationDate" ng-model="employeeDetail.SeparationDate" ng-bind="employeeDetail.SeparationDate | date:'mm/dd/yyyy'">
             </div>
             <div>
-                <select ng-model="editEmployee.DepartmentId">
-                    <option ng-repeat="department in departments" value="{{department.DepartmentId}}">{{department.DepartmentName}}</option>
-
+                <label for="exampleInputFile">Department</label>
+                <select ng-model="employeeDetail.DepartmentId">
+                    <option ng-selected="employeeDetail.DepartmentId == department.DepartmentId" ng-repeat="department in departments" ng-value="department.DepartmentId">{{department.DepartmentName}}</option>
                 </select>
             </div>
             <div>
-                <select ng-model="editEmployee.ComputerId">
-                    <option ng-repeat="computer in unassignedComputers" value="{{department.DepartmentId}}">{{department.DepartmentName}}</option>
+                <label for="exampleInputFile">Computer</label>
+                <select ng-model="employeeDetail.ComputerId" ng-init="computer">
+                    <option ng-selected="employeeDetail.ComputerId == computer.ComputerId" ng-repeat="computer in unassignedComputers" ng-value="computer.ComputerId">{{computer.ComputerManufacturer}} {{computer.ComputerMake}}</option>
 
                 </select>
             </div>

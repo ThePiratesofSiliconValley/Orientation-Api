@@ -3,7 +3,7 @@
     $scope.message = "Current Employee";
     
     $http.get(`/api/employees/detail/${$routeParams.id}`).then(function (result) {
-        $scope.editEmployee = result.data;
+        $scope.employee = result.data;
     });
 
     $scope.employeeEdit = function () {
