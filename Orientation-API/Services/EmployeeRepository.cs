@@ -70,7 +70,6 @@ namespace Orientation_API.Services
                                                        SET FirstName = @FirstName
                                                           ,LastName = @LastName
                                                           ,DepartmentId = @DepartmentId
-                                                          ,HireDate = @HireDate
                                                           ,SeparationDate = @SeparationDate
                                                           ,ComputerId = @ComputerId
                                                      WHERE employeeId = @EmployeeId", employee);
