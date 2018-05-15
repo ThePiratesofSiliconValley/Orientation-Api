@@ -85,8 +85,6 @@ namespace Orientation_API.Services
                 LastName = employee.LastName,
                 DepartmentId = employee.DepartmentId,
                 EmployeeId = id,
-                HireDate = employee.HireDate,
-                SeparationDate = employee.SeparationDate,
                 ComputerId = employee.ComputerId
             };
 

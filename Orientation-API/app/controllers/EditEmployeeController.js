@@ -5,9 +5,7 @@
             "FirstName": employee.FirstName,
             "LastName": employee.LastName,
             "DepartmentId": employee.DepartmentId,
-            "SeparationDate": employee.SeparationDate,
             "ComputerId": employee.ComputerId
-
         };
     };
 
@@ -20,6 +18,7 @@
 
     $http.get(`api/computers/${$routeParams.id}/unassigned`).then(function (results) {
         $scope.unassignedComputers = results.data;
+        console.log($scope.unassignedComputers);
     });
 
     $http.get("/api/departments").then(function (results) {
@@ -29,7 +28,9 @@
     $scope.editEmployee = function (employee) {
         console.log("this works");
         var package = createJson(employee);
-        console.log(package);
+        $http.put(`api/employees/${$scope.employeeDetail.EmployeeId}`, JSON.stringify(package)).then(function (results) {
+            $location.path("/employees");
+        });
     };
 
     
