@@ -80,9 +80,9 @@ namespace Orientation_API.Services
             {
                 db.Open();
 
-                var result = db.QueryFirst("select * from employees where computerId = @computerId", new { computerId });
+                var result = db.QuerySingleOrDefault("select * from employees where computerId = @computerId", new { computerId });
 
-                return result != null;
+                return result == null;
             }
         }
 
