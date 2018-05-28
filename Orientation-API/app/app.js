@@ -13,6 +13,16 @@ app.config(["$routeProvider", function ($routeProvider) {
             templateUrl: "/app/partials/departments.html",
             controller: "DepartmentsController"
         })
+        .when("/create-department",
+        {
+            templateUrl: "/app/partials/create-department.html",
+            controller: "CreateDepartmentController"
+        })
+        .when("/departmentdetails/:id",
+        {
+            templateUrl: "/app/partials/departmentdetails.html",
+            controller: "DepartmentDetailsController"
+        })
         .when("/computers",
         {
             templateUrl: "/app/partials/computers.html",
@@ -32,11 +42,6 @@ app.config(["$routeProvider", function ($routeProvider) {
         {
             templateUrl: "/app/partials/employeeDetails.html",
             controller: "EmployeesDetailsController",
-        })
-        .when("/create-department",
-        {
-            templateUrl: "/app/partials/create-department.html",
-            controller: "CreateDepartmentController"
         })
         .when("/newemployee",
         {
@@ -72,6 +77,11 @@ app.config(["$routeProvider", function ($routeProvider) {
         {
             templateUrl: "/app/partials/TrainingProgramEdit.html",
             controller: "TrainingProgramEditController"
+        })
+        .when("/trainings/delete/:id",
+        {
+            templateUrl: "/app/partials/TrainingProgramDelete.html",
+            controller: "TrainingProgramDeleteController"
         });
 
 }]);
