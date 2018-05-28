@@ -11,14 +11,11 @@
 
     $http.get(`/api/employees/detail/${$routeParams.id}`).then(function (results) {
         $scope.employeeDetail = results.data;
-        $scope.employeeDetail.SeparationDate = Date.parse($scope.employeeDetail.SeparationDate);
-        console.log($scope.employeeDetail);
     });
 
 
-    $http.get(`api/computers/${$routeParams.id}/unassigned`).then(function (results) {
+    $http.get(`api/computers`).then(function (results) {
         $scope.unassignedComputers = results.data;
-        console.log($scope.unassignedComputers);
     });
 
     $http.get("/api/departments").then(function (results) {
