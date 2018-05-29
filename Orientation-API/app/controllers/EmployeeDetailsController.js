@@ -5,4 +5,8 @@
     $http.get(`/api/employees/detail/${$routeParams.id}`).then(function (result) {
         $scope.employee = result.data;
     });
+
+    $scope.employeeEdit = function () {
+        $location.path(`/editemployee/${$routeParams.id}`);
+    };
 }]);

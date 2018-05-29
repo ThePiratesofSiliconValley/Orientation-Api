@@ -27,6 +27,18 @@ namespace Orientation_API.Services
             }            
         }
 
+        public Employee GetSingleEmployee(int id)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+
+                var singleEmployee = db.QueryFirst<Employee>(@"SELECT * from employees where employeeId = @id", new { id });
+
+                return singleEmployee;
+            }
+        }
+
         public bool AddNewEmployee(NewEmployeeDto employee)
         {
             using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
@@ -46,7 +58,37 @@ namespace Orientation_API.Services
 
                 return newEmployeeRecord == 1;
             }
+        }
 
+        public bool UpdateEmployee(Employee employee)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+
+                var result = db.Execute(@"UPDATE Employees
+                                                       SET FirstName = @FirstName
+                                                          ,LastName = @LastName
+                                                          ,DepartmentId = @DepartmentId
+                                                          ,SeparationDate = @SeparationDate
+                                                          ,ComputerId = @ComputerId
+                                                     WHERE employeeId = @EmployeeId", employee);
+                return result == 1;
+            }
+        }
+
+        public Employee ConvertEmployee(EmployeeEditDto employee, int id)
+        {
+            var convertedEmployee = new Employee
+            {
+                FirstName = employee.FirstName,
+                LastName = employee.LastName,
+                DepartmentId = employee.DepartmentId,
+                EmployeeId = id,
+                ComputerId = employee.ComputerId
+            };
+
+            return convertedEmployee;
         }
 
         public IEnumerable<EmployeeModel> GetEmployeesByTraining(int trainingId)
@@ -63,5 +105,37 @@ namespace Orientation_API.Services
                 return employeeByTraining;
             }
         }
+                
+
+        public bool AddTrainingToEmployee(int employeeId, int trainingId)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+
+                var result = db.Execute(@"INSERT INTO EmployeeTraining
+                                                           (EmployeeId
+                                                           ,TrainingId)
+                                                     VALUES
+                                                           (@employeeId
+                                                           ,@trainingId)", new { employeeId, trainingId });
+
+                return result == 1;
+            }
+        }
+
+        public bool DeleteTraining(int id)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+
+                var result = db.Execute("delete from employeetraining where employeetrainingid = @id", new { id });
+
+                return result == 1;
+            }
+        }
+
     }
+
 }

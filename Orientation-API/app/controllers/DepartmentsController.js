@@ -5,11 +5,9 @@
 
         $http.get("/api/departments").then(function (result) {
             $scope.departments = result.data;
-            console.log($scope.departments);
         });
 
         $scope.viewDepartmentDetails = function (departmentId) {
- 
             $location.path(`/departmentdetails/${departmentId}`);
         };
 

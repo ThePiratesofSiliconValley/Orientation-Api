@@ -1,5 +1,6 @@
 ﻿var app = angular.module("Orientation-API", ["ngRoute"]);
 
+
 app.config(["$routeProvider", function ($routeProvider) {
     $routeProvider
         .when("/",
@@ -61,6 +62,11 @@ app.config(["$routeProvider", function ($routeProvider) {
         {
             templateUrl: "/app/partials/createTraining.html",
             controller: "CreateTrainingController"
+        })
+        .when("/editemployee/:id",
+        {
+            templateUrl: "/app/partials/editemployee.html",
+            controller: "EditEmployeeController"
         })
         .when("/trainings/details/:id",
         {
